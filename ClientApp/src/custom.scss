@@ -12,3 +12,23 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+//Hero Section
+.hero {
+  align-items: center;
+  background-image: url('../src/Images/hero.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: #cf5300;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.call-to-action {
+  padding: 0.5rem;
+  // background-color: whitesmoke;
+  border: 0.1rem solid #cf5300;
+  border-radius: 1rem;
+  color: whitesmoke;
+}
