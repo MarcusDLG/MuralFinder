@@ -12,6 +12,7 @@ body {
 
 nav.navbar {
   margin-bottom: 0 !important;
+  background-color: #2e2e3a;
 }
 
 .btn-primary {
@@ -19,28 +20,41 @@ nav.navbar {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+footer {
+  text-align: center;
+}
 // Home Page
 
 //Hero Section
 .hero {
   background-image: url('../src/Images/hero.jpg');
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 66.5vw;
-  width: 100%;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  // width: 100%;
   width: auto;
 }
 
-.hero-header {
+.who-we-are {
+  background-color: #de9151;
+  margin: 0;
+  padding: 5rem;
   text-align: center;
-  color: #cf5300;
-  margin: 0 6rem;
+}
+.who-we-are p {
+  margin: 0;
+  padding: 1rem;
+}
+.retro-camera {
+  font-size: 5rem;
 }
 
 .cta {
   background-color: #2e2e3a;
   // border-radius: 8rem;
-  padding-bottom: 1rem;
+  padding: 5rem 0;
   text-align: center;
 }
 
@@ -50,20 +64,30 @@ nav.navbar {
   background-color: #de9151;
   border-radius: 2rem;
   margin: 1rem 4rem 0 4rem;
-  // padding-bottom: 2rem;
+  padding: 2rem;
 }
 
 .description-of-us .description {
   margin: 0rem 2rem 1rem;
 }
 
+.description-of-us .spray-can {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
 .call-to-action {
-  padding: 0.5rem;
+  padding: 1rem;
   // background-color: whitesmoke;
   border: 0.1rem solid #cf5300;
   background-color: #964814;
   border-radius: 1rem;
-  color: whitesmoke;
+  color: #fbfbff;
+}
+
+.map {
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
 //Search Page
