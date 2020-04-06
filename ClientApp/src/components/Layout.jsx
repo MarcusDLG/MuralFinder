@@ -6,7 +6,7 @@ export function Layout(props) {
   return (
     <div>
       <NavMenu />
-      <Container>{props.children}</Container>
+      <div>{props.children}</div>
     </div>
   )
 }
