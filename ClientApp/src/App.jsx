@@ -6,7 +6,9 @@ import HelloWorld from './pages/_template/HelloWorld'
 import HeyWorld from './pages/_template/HeyWorld'
 import NotFound from './pages/NotFound'
 import Search from './pages/Search'
+import AddMural from './pages/AddMural'
 import './custom.scss'
+import MuralDetails from './pages/MuralDetails'
 export default class App extends Component {
   static displayName = App.name
 
@@ -16,7 +18,8 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/find" component={Search} />
-          <Route exact path="/typescript" component={HeyWorld} />
+          <Route exact path="/add" component={AddMural} />
+          <Route exact path="/mural/:muralId" component={MuralDetails} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </Layout>

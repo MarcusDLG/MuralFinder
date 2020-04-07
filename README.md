@@ -2,7 +2,7 @@
 
 ## Photo Attribution
 
--hero : Photo by Seyi Ariyo on Unsplash
+-hero : Photo by ryan haft on Unsplash
 
 ## Details
 

@@ -8,6 +8,8 @@ namespace MuralFinder.Models
   public partial class DatabaseContext : DbContext
   {
 
+    public DbSet<Mural> Murals { get; set; }
+    public DbSet<Artist> Artists { get; set; }
 
 
 
@@ -23,7 +25,7 @@ namespace MuralFinder.Models
       if (!optionsBuilder.IsConfigured)
       {
         var envConn = Environment.GetEnvironmentVariable("DATABASE_URL");
-// #error Update this connection string to point to your own database.
+        // #error Update this connection string to point to your own database.
         var conn = "server=localhost;database=MuralFinderDatabase";
         if (envConn != null)
         {
