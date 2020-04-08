@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Hero = () => {
   return (
     <>
-      {/* <Link to="/find" className="call-to-action">
+      <Link to="/find" className="call-to-action">
+        <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
         Find Murals
       </Link>
-      <h3>Welcome to Mural Findah!</h3>
-      <h2>We're here to help you find the murals of Tampa Bay!</h2> */}
     </>
   )
 }
