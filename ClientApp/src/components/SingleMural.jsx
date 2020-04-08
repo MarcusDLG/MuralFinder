@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import INnOUT from '../Images/INnOUT.jpg'
 import ReactMapGL from 'react-map-gl'
 import Footer from './Footer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 
 const SingleMural = props => {
   const { mural } = props
@@ -29,7 +31,12 @@ const SingleMural = props => {
         <main className="mural-details">
           <section className="mural-info">
             <h1>{mural.name}</h1>
-            <h5>by {mural.artist}</h5>
+            <section className="artist-info">
+              <h5>{mural.artist}</h5>
+              <section className="spray-icon">
+                <FontAwesomeIcon icon={faSprayCan} />
+              </section>
+            </section>
             <h6>
               {mural.address}, {mural.city}, {mural.state}
             </h6>

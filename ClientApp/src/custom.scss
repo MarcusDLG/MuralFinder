@@ -192,11 +192,19 @@ footer {
       grid-column-start: 1;
       grid-column-end: 3;
     }
-    h5 {
+    .spray-icon {
+      font-size: 3rem;
+      // grid-column-start: 6;
+      // grid-column-end: 7;
+    }
+    .artist-info {
       grid-column-start: 7;
       grid-column-end: 9;
       display: flex;
       flex-direction: row-reverse;
+      align-items: center;
+      justify-content: center;
+      // flex-direction: row-reverse;
     }
   }
 
