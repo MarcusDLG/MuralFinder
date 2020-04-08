@@ -39,6 +39,7 @@ const SingleMural = props => {
           </section>
         </section>
       </section>
+      {/* testing out push to master */}
       {/* add other murals below as clickable cards */}
       <Footer />
     </>
