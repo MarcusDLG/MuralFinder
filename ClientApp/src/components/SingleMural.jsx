@@ -5,6 +5,11 @@ import Footer from './Footer'
 
 const SingleMural = props => {
   const { mural } = props
+  // const latitude = props.mural.latitude
+  // const longitude = props.mural.longitude
+  //re-render map function to make this work
+
+  console.log(mural)
   const TOKEN =
     'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
   const [viewport, setViewport] = useState({

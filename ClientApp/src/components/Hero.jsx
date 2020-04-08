@@ -8,7 +8,7 @@ const Hero = () => {
     <>
       <Link to="/find" className="call-to-action">
         <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
-        Find Murals
+        <p>Find Murals</p>
       </Link>
     </>
   )

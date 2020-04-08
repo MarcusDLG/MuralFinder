@@ -59,6 +59,8 @@ footer {
     height: fit-content;
     align-items: center;
     background-color: #2e2e3ad3;
+    padding: 1rem 2rem;
+    font-size: 2rem;
 
     &:hover {
       background-color: #2d2d3a;
@@ -121,6 +123,10 @@ footer {
   &:hover {
     background-color: #2e2e3ad3;
     color: #bbb8b2;
+  }
+
+  p {
+    margin: 0;
   }
 }
 
