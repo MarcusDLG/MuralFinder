@@ -57,7 +57,7 @@ footer {
   a {
     display: flex;
     height: fit-content;
-    color: #de9151;
+    color: #fbfbff;
     align-items: center;
     background-color: #2e2e3ad3;
     padding: 1rem 2rem;
@@ -198,7 +198,7 @@ footer {
       // grid-column-end: 7;
     }
     .artist-info {
-      grid-column-start: 7;
+      grid-column-start: 8;
       grid-column-end: 9;
       display: flex;
       flex-direction: row-reverse;
@@ -217,7 +217,7 @@ footer {
     .description {
       // background-color: #de9151;
       padding: 1rem;
-      margin: 1rem 5rem;
+      margin: 1rem 4rem;
       // border-radius: 1rem;
     }
   }

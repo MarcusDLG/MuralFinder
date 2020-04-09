@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MuralFinder.Models
 {
@@ -13,9 +14,11 @@ namespace MuralFinder.Models
     public string Address { get; set; }
     public double Latitude { get; set; }
     public double Longitude { get; set; }
-    public string Artist { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
-    // public List<Artist> Artists { get; set; } = new List<Artist>();
+    public string ArtistID { get; set; }
+    [JsonIgnore]
+    public Artist Artist { get; set; }
+
 
 
   }
