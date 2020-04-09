@@ -11,7 +11,5 @@ namespace MuralFinder.Models
     public string Facebook { get; set; }
     public string Instagram { get; set; }
     public List<Mural> Murals { get; set; } = new List<Mural>();
-
-    public Mural Mural { get; set; }
   }
 }

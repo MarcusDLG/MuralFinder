@@ -32,9 +32,6 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Instagram")
                         .HasColumnType("text");
 
-                    b.Property<int>("MuralId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -42,8 +39,6 @@ namespace MuralFinder.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MuralId");
 
                     b.ToTable("Artists");
                 });
@@ -58,8 +53,11 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<string>("Artist")
+                    b.Property<string>("ArtistID")
                         .HasColumnType("text");
+
+                    b.Property<int?>("ArtistId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("City")
                         .HasColumnType("text");
@@ -84,16 +82,16 @@ namespace MuralFinder.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArtistId");
+
                     b.ToTable("Murals");
                 });
 
-            modelBuilder.Entity("MuralFinder.Models.Artist", b =>
+            modelBuilder.Entity("MuralFinder.Models.Mural", b =>
                 {
-                    b.HasOne("MuralFinder.Models.Mural", "Mural")
-                        .WithMany()
-                        .HasForeignKey("MuralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MuralFinder.Models.Artist", "Artist")
+                        .WithMany("Murals")
+                        .HasForeignKey("ArtistId");
                 });
 #pragma warning restore 612, 618
         }

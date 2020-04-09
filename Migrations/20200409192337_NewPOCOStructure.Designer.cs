@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MuralFinder.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200407183833_FixedMuralArtistIssue")]
-    partial class FixedMuralArtistIssue
+    [Migration("20200409192337_NewPOCOStructure")]
+    partial class NewPOCOStructure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,9 +34,6 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Instagram")
                         .HasColumnType("text");
 
-                    b.Property<int>("MuralId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -44,8 +41,6 @@ namespace MuralFinder.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MuralId");
 
                     b.ToTable("Artists");
                 });
@@ -60,8 +55,11 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<string>("Artist")
+                    b.Property<string>("ArtistID")
                         .HasColumnType("text");
+
+                    b.Property<int?>("ArtistId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("City")
                         .HasColumnType("text");
@@ -72,6 +70,12 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<double>("Latitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("Longitude")
+                        .HasColumnType("double precision");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -80,16 +84,16 @@ namespace MuralFinder.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArtistId");
+
                     b.ToTable("Murals");
                 });
 
-            modelBuilder.Entity("MuralFinder.Models.Artist", b =>
+            modelBuilder.Entity("MuralFinder.Models.Mural", b =>
                 {
-                    b.HasOne("MuralFinder.Models.Mural", "Mural")
-                        .WithMany()
-                        .HasForeignKey("MuralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("MuralFinder.Models.Artist", "Artist")
+                        .WithMany("Murals")
+                        .HasForeignKey("ArtistId");
                 });
 #pragma warning restore 612, 618
         }
