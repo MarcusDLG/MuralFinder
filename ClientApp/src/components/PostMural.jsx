@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
-const PostMural = () => {
+const PostMural = props => {
+  // console.log(props.match.params.artistId)
+  // const artistId = props.match.params.artistId
+  // console.log(artistId)
   const [mural, setMural] = useState({})
   const [wasSuccessfullyPosted, setWasSuccessfullyPosted] = useState({
     shouldRedirect: false,
@@ -35,7 +38,7 @@ const PostMural = () => {
       <Redirect
         to={{
           pathname: `/mural/${wasSuccessfullyPosted.newMuralInformation.id}`,
-          state: { trail: wasSuccessfullyPosted.newTrailInformation },
+          state: { mural: wasSuccessfullyPosted.newMuralInformation },
         }}
       />
     )
@@ -63,10 +66,10 @@ const PostMural = () => {
             <label htmlFor="">Address</label>
             <input type="text" name="Address" onChange={updateMuralData} />
           </section>
-          <section>
+          {/* <section>
             <label htmlFor="">Artist</label>
             <input type="text" name="Artist" onChange={updateMuralData} />
-          </section>
+          </section> */}
           <button onClick={addMuralToApi}> Add Mural</button>
         </main>
       </>

@@ -84,6 +84,15 @@ namespace MuralFinder.Controllers
 
       return CreatedAtAction("GetArtist", new { id = artist.Id }, artist);
     }
+    [HttpPost("{artistId}/murals")]
+    public async Task<ActionResult<Artist>> PostMuralToArtist(int artistId, Mural mural)
+    {
+      mural.ArtistID = artistId;
+      _context.Murals.Add(mural);
+      await _context.SaveChangesAsync();
+
+      return Ok(mural);
+    }
 
     // DELETE: api/Artists/5
     [HttpDelete("{id}")]

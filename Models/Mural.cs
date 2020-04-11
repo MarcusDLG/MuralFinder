@@ -12,10 +12,10 @@ namespace MuralFinder.Models
     public string City { get; set; }
     public string State { get; set; }
     public string Address { get; set; }
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
+    public string Latitude { get; set; }
+    public string Longitude { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
-    public string ArtistID { get; set; }
+    public int ArtistID { get; set; }
     [JsonIgnore]
     public Artist Artist { get; set; }
 

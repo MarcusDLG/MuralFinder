@@ -1,15 +1,14 @@
-import React from 'react'
-
-//for FRIDAY: finish redirect to post mural page, and fix router/add post artist page to app.jsx
-//post mural needs to take in artist ID from params, set mural artistID = to id pulled from link, post mural without artist field
-
-const [artist, setArtist] = useState({})
-// const [wasSuccessfullyPosted, setWasSuccessfullyPosted] = useState({
-//   shouldRedirect: false,
-//   newArtistInformation: {},
-// })
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const PostArtist = () => {
+  const [artist, setArtist] = useState({})
+  const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
+    shouldRedirect: false,
+    newArtistInformation: {},
+  })
+
   const updateArtistData = e => {
     const key = e.target.name
     const value = e.target.value
@@ -17,42 +16,61 @@ const PostArtist = () => {
       prevArtist[key] = value
       return prevArtist
     })
+    console.log(artist)
   }
 
-  const addArtistToApi = async () => {
+  const addArtistToApi = async e => {
+    e.preventDefault()
     console.log('adding', artist)
     const resp = await axios.post('/api/artists', artist)
     if (resp.status === 201) {
-      setWasSuccessfullyPosted({
-        // shouldRedirect: true,
+      // do something something else
+      setWasSuccessfullyCreated({
         newArtistInformation: resp.data,
+        shouldRedirect: true,
       })
+      console.log(wasSuccessfullyCreated.newArtistInformation)
     } else {
-      //do something here
+      // do something else here
     }
   }
 
-  return (
-    <>
-      <section>
-        <label htmlFor="">Name</label>
-        <input type="text" name="Name" onChange={updateArtistData} />
-      </section>
-      <section>
-        <label htmlFor="">Website</label>
-        <input type="text" name="Website" onChange={updateArtistData} />
-      </section>
-      <section>
-        <label htmlFor="">Facebook</label>
-        <input type="text" name="Facebook" onChange={updateArtistData} />
-      </section>
-      <section>
-        <label htmlFor="">Instagram</label>
-        <input type="text" name="Instagram" onChange={updateArtistData} />
-      </section>
-      <button onClick={addArtistToApi}>Submit</button>
-    </>
-  )
+  if (wasSuccessfullyCreated.shouldRedirect) {
+    // console.log(newArtistInformation)
+    return (
+      <Redirect
+        to={{
+          pathname: `/artist/${wasSuccessfullyCreated.newArtistInformation.id}`,
+          state: { artist: wasSuccessfullyCreated.newArtistInformation },
+        }}
+      />
+    )
+  } else {
+    return (
+      <>
+        <form className="add-artist" onSubmit={addArtistToApi}>
+          <h1>Artist Information</h1>
+          <section>
+            <label htmlFor="">Name</label>
+            <input type="text" name="Name" onChange={updateArtistData} />
+          </section>
+          <section>
+            <label htmlFor="">Website</label>
+            <input type="text" name="Website" onChange={updateArtistData} />
+          </section>
+          <section>
+            <label htmlFor="">Facebook</label>
+            <input type="text" name="Facebook" onChange={updateArtistData} />
+          </section>
+          <section>
+            <label htmlFor="">Instagram</label>
+            <input type="text" name="Instagram" onChange={updateArtistData} />
+          </section>
+          <button>Submit</button>
+        </form>
+      </>
+    )
+  }
 }
 
 export default PostArtist

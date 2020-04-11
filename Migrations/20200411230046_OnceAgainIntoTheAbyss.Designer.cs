@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MuralFinder.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200409192337_NewPOCOStructure")]
-    partial class NewPOCOStructure
+    [Migration("20200411230046_OnceAgainIntoTheAbyss")]
+    partial class OnceAgainIntoTheAbyss
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,10 +55,7 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<string>("ArtistID")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("ArtistId")
+                    b.Property<int>("ArtistID")
                         .HasColumnType("integer");
 
                     b.Property<string>("City")
@@ -70,11 +67,11 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<double>("Latitude")
-                        .HasColumnType("double precision");
+                    b.Property<string>("Latitude")
+                        .HasColumnType("text");
 
-                    b.Property<double>("Longitude")
-                        .HasColumnType("double precision");
+                    b.Property<string>("Longitude")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -84,7 +81,7 @@ namespace MuralFinder.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistId");
+                    b.HasIndex("ArtistID");
 
                     b.ToTable("Murals");
                 });
@@ -93,7 +90,9 @@ namespace MuralFinder.Migrations
                 {
                     b.HasOne("MuralFinder.Models.Artist", "Artist")
                         .WithMany("Murals")
-                        .HasForeignKey("ArtistId");
+                        .HasForeignKey("ArtistID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

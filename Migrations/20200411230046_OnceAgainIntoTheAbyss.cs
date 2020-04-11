@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MuralFinder.Migrations
 {
-    public partial class NewPOCOStructure : Migration
+    public partial class OnceAgainIntoTheAbyss : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,27 +35,26 @@ namespace MuralFinder.Migrations
                     City = table.Column<string>(nullable: true),
                     State = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
-                    Latitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false),
+                    Latitude = table.Column<string>(nullable: true),
+                    Longitude = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: false),
-                    ArtistID = table.Column<string>(nullable: true),
-                    ArtistId = table.Column<int>(nullable: true)
+                    ArtistID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Murals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Murals_Artists_ArtistId",
-                        column: x => x.ArtistId,
+                        name: "FK_Murals_Artists_ArtistID",
+                        column: x => x.ArtistID,
                         principalTable: "Artists",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Murals_ArtistId",
+                name: "IX_Murals_ArtistID",
                 table: "Murals",
-                column: "ArtistId");
+                column: "ArtistID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
