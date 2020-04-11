@@ -28,7 +28,7 @@ const AddMural = props => {
     // console.log('adding', mural)
     const resp = await axios.post(`/api/artists/${artistId}/murals`, mural)
     console.log(resp.data)
-    if (resp.status === 201) {
+    if (resp.status === 201 || resp.status === 200) {
       setWasSuccessfullyPosted({
         shouldRedirect: true,
         newMuralInformation: resp.data,
@@ -42,8 +42,8 @@ const AddMural = props => {
     return (
       <Redirect
         to={{
-          pathname: `/mural/${wasSuccessfullyPosted.newMuralInformation.id}`,
           state: { mural: wasSuccessfullyPosted.newMuralInformation },
+          pathname: `/mural/${wasSuccessfullyPosted.newMuralInformation.id}`,
         }}
       />
     )
@@ -102,7 +102,7 @@ const AddMural = props => {
             <label htmlFor="">Artist</label>
             <input type="text" name="Artist" onChange={updateMuralData} />
           </section> */}
-            <button> Add Mural</button>
+            <button>Submit</button>
           </form>
         </main>
       </>

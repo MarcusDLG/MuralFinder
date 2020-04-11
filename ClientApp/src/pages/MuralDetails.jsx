@@ -9,18 +9,29 @@ import PageLoader from '../components/PageLoader'
 import Footer from '../components/Footer'
 
 const MuralDetails = props => {
-  console.log(props)
+  // console.log(props)
 
   const [mural, setMural] = useState({})
+  const [artist, setArtist] = useState({})
   const muralId = props.match.params.muralId
 
   const getMuralData = async () => {
     const resp = await axios.get('/api/murals/' + muralId)
     console.log(resp.data)
     setMural(resp.data)
+    if (resp.status === 201 || resp.status === 200) {
+      getArtistData()
+    } else {
+      //do something here
+    }
+  }
+  const getArtistData = async () => {
+    const artistResp = await axios.get('api/Artists/2')
+    console.log(artistResp.data)
+    setArtist(artistResp.data)
   }
 
-  console.log(mural)
+  // console.log(mural)
   const TOKEN =
     'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
   const [viewport, setViewport] = useState({
@@ -49,7 +60,7 @@ const MuralDetails = props => {
             <section className="mural-info">
               <h1>{mural.name}</h1>
               <section className="artist-info">
-                <h5>{mural.artist}</h5>
+                <h5>{artist.name}</h5>
                 <section className="spray-icon">
                   <FontAwesomeIcon icon={faSprayCan} />
                 </section>

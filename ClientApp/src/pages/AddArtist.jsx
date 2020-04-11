@@ -25,7 +25,7 @@ const AddArtist = () => {
     e.preventDefault()
     console.log('adding', artist)
     const resp = await axios.post('/api/artists', artist)
-    if (resp.status === 201) {
+    if (resp.status === 200 || resp.status === 201) {
       // do something something else
       setWasSuccessfullyCreated({
         newArtistInformation: resp.data,
@@ -38,7 +38,7 @@ const AddArtist = () => {
   }
 
   if (wasSuccessfullyCreated.shouldRedirect) {
-    // console.log(newArtistInformation)
+    console.log(wasSuccessfullyCreated.shouldRedirect)
     return (
       <Redirect
         to={{
