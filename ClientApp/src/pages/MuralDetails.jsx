@@ -37,8 +37,8 @@ const MuralDetails = props => {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 28.02881,
-    longitude: -82.6403,
+    latitude: mural.latitude,
+    longitude: mural.longitude,
     zoom: 14,
   })
 
