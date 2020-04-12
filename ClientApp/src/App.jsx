@@ -16,6 +16,7 @@ export default class App extends Component {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
+
           <Route exact path="/find" component={Search} />
           <Route exact path="/artist/:artistId" component={AddMural} />
           <Route exact path="/addArtist" component={AddArtist} />
