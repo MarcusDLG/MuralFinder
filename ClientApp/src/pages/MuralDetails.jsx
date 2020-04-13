@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 const MuralDetails = props => {
   // console.log(props)
 
-  const [mural, setMural] = useState({})
+  const [mural, setMural] = useState({ artistId: '1' })
   const [artist, setArtist] = useState({})
   const muralId = props.match.params.muralId
   // console.log(mural)
@@ -30,12 +30,7 @@ const MuralDetails = props => {
     // e.preventDefault()
     const artistResp = await axios.get(`api/Artists/${mural.artistId}`)
     console.log(artistResp.data)
-    setArtist(prev => {
-      return {
-        ...prev,
-        artist: artistResp.data,
-      }
-    })
+    setArtist(artistResp.data)
     console.log(artist)
   }
 
