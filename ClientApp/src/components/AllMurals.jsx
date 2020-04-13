@@ -18,7 +18,7 @@ const AllMurals = () => {
         <section className="no-results-message">
           <p>
             No Murals Found. Would you like to{' '}
-            <Link to="/add">add a mural?</Link>
+            <Link to="/addArtist">add an artist?</Link>
           </p>
         </section>
       </main>

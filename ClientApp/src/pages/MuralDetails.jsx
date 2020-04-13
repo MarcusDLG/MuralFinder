@@ -14,6 +14,7 @@ const MuralDetails = props => {
   const [mural, setMural] = useState({})
   const [artist, setArtist] = useState({})
   const muralId = props.match.params.muralId
+  // console.log(mural)
 
   const getMuralData = async () => {
     const resp = await axios.get('/api/murals/' + muralId)
@@ -26,9 +27,16 @@ const MuralDetails = props => {
     }
   }
   const getArtistData = async () => {
-    const artistResp = await axios.get('api/Artists/2')
+    // e.preventDefault()
+    const artistResp = await axios.get(`api/Artists/${mural.artistId}`)
     console.log(artistResp.data)
-    setArtist(artistResp.data)
+    setArtist(prev => {
+      return {
+        ...prev,
+        artist: artistResp.data,
+      }
+    })
+    console.log(artist)
   }
 
   // console.log(mural)
@@ -54,7 +62,7 @@ const MuralDetails = props => {
       <>
         <section className="single-mural">
           <section className="mural-image">
-            <img src={INnOUT} alt={mural.name} />
+            <img src={mural.imageUrl} alt={mural.name} />
           </section>
           <main className="mural-details">
             <section className="mural-info">

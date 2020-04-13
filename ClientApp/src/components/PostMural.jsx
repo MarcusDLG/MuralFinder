@@ -66,10 +66,6 @@ const PostMural = props => {
             <label htmlFor="">Address</label>
             <input type="text" name="Address" onChange={updateMuralData} />
           </section>
-          {/* <section>
-            <label htmlFor="">Artist</label>
-            <input type="text" name="Artist" onChange={updateMuralData} />
-          </section> */}
           <button onClick={addMuralToApi}> Add Mural</button>
         </main>
       </>

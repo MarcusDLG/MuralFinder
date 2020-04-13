@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MuralFinder.Migrations
 {
-    public partial class OnceAgainIntoTheAbyss : Migration
+    public partial class NotTheLastTime : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,24 +37,25 @@ namespace MuralFinder.Migrations
                     Address = table.Column<string>(nullable: true),
                     Latitude = table.Column<string>(nullable: true),
                     Longitude = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
                     DateCreated = table.Column<DateTime>(nullable: false),
-                    ArtistID = table.Column<int>(nullable: false)
+                    ArtistId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Murals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Murals_Artists_ArtistID",
-                        column: x => x.ArtistID,
+                        name: "FK_Murals_Artists_ArtistId",
+                        column: x => x.ArtistId,
                         principalTable: "Artists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Murals_ArtistID",
+                name: "IX_Murals_ArtistId",
                 table: "Murals",
-                column: "ArtistID");
+                column: "ArtistId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

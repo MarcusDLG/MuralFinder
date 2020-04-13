@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
-import PostMural from '../components/PostMural'
-import Footer from '../components/Footer'
 
 const AddMural = props => {
   console.log(props)
@@ -13,7 +12,29 @@ const AddMural = props => {
     newMuralInformation: {},
   })
 
-  console.log(mural.artistId)
+  const onDrop = useCallback(acceptedFiles => {
+    console.log(acceptedFiles)
+    const fileToUpload = acceptedFiles[0]
+    const formData = new FormData()
+    formData.append('file', fileToUpload)
+    axios
+      .post('/file/upload', formData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+          accept: 'application / json',
+        },
+      })
+      .then(resp => {
+        console.log(resp.data)
+        setMural(prevMural => {
+          mural.imageUrl = resp.data.secureUri
+          return prevMural
+        })
+      })
+  }, [])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  const [uploadedImageUrl, setUploadedImageUrl] = useState('')
+  // console.log(mural.artistId)
 
   const updateMuralData = e => {
     const key = e.target.name
@@ -50,6 +71,19 @@ const AddMural = props => {
   } else {
     return (
       <>
+        <div>
+          <div {...getRootProps()}>
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the files here ...</p>
+            ) : (
+              <p>Drag 'n' drop some files here, or click to select files</p>
+            )}
+          </div>
+          <section className="image-uploaded">
+            {uploadedImageUrl && <img src={uploadedImageUrl} />}
+          </section>
+        </div>
         <main className="mural-submission">
           <form onSubmit={addMuralToApi}>
             <section>
@@ -98,10 +132,6 @@ const AddMural = props => {
                 max="1000"
               />
             </section>
-            {/* <section>
-            <label htmlFor="">Artist</label>
-            <input type="text" name="Artist" onChange={updateMuralData} />
-          </section> */}
             <button>Submit</button>
           </form>
         </main>

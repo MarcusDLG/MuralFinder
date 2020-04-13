@@ -53,7 +53,7 @@ namespace MuralFinder.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
-                    b.Property<int>("ArtistID")
+                    b.Property<int>("ArtistId")
                         .HasColumnType("integer");
 
                     b.Property<string>("City")
@@ -63,6 +63,9 @@ namespace MuralFinder.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Latitude")
@@ -79,7 +82,7 @@ namespace MuralFinder.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ArtistID");
+                    b.HasIndex("ArtistId");
 
                     b.ToTable("Murals");
                 });
@@ -88,7 +91,7 @@ namespace MuralFinder.Migrations
                 {
                     b.HasOne("MuralFinder.Models.Artist", "Artist")
                         .WithMany("Murals")
-                        .HasForeignKey("ArtistID")
+                        .HasForeignKey("ArtistId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

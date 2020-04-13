@@ -14,8 +14,9 @@ namespace MuralFinder.Models
     public string Address { get; set; }
     public string Latitude { get; set; }
     public string Longitude { get; set; }
+    public string ImageUrl { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
-    public int ArtistID { get; set; }
+    public int ArtistId { get; set; }
     [JsonIgnore]
     public Artist Artist { get; set; }
 
