@@ -175,6 +175,24 @@ footer {
   color: #2e2e3a;
 }
 
+.mural-results {
+  color: #2e2e3a;
+  ul {
+    list-style: none;
+    padding: 1rem;
+  }
+  .image-tile {
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    .mural-info {
+      text-align: center;
+    }
+  }
+}
+
 //Mural Details Page
 .single-mural {
   color: #2d2d3a;

@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
-import Footer from '../components/Footer'
-import PostArtist from '../components/PostArtist'
-
 const AddArtist = () => {
   const [artist, setArtist] = useState({})
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({

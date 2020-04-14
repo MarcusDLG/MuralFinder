@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
@@ -80,7 +80,7 @@ const AddMural = props => {
             )}
           </div>
           <section className="image-uploaded">
-            {uploadedImageUrl && <img src={uploadedImageUrl} />}
+            {uploadedImageUrl && <img src={uploadedImageUrl} alt="whatever" />}
           </section>
         </div>
         <main className="mural-submission">
