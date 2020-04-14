@@ -30,12 +30,6 @@ namespace MuralFinder.Controllers
           File = new FileDescription(file.FileName, file.OpenReadStream())
         };
         var result = cloudiary.Upload(uploadParams);
-        // var uploadedImage = new UploadedImage
-        // {
-        //   ImageUrl = result.SecureUri.AbsoluteUri
-        // };
-        // _context.UploadImages.Add(uploadedImage);
-        // await _context.SaveChangesAsync();
         return Ok(result);
       }
       else
