@@ -34,7 +34,6 @@ const AddMural = props => {
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
   const [uploadedImageUrl, setUploadedImageUrl] = useState('')
-  // console.log(mural.artistId)
 
   const updateMuralData = e => {
     const key = e.target.name
