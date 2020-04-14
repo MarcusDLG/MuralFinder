@@ -17,7 +17,7 @@ namespace MuralFinder.Models
     public string ImageUrl { get; set; }
     public DateTime DateCreated { get; set; } = DateTime.Now;
     public int ArtistId { get; set; }
-    [JsonIgnore]
+
     public Artist Artist { get; set; }
 
 
