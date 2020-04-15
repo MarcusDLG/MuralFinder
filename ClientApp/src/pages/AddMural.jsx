@@ -132,7 +132,7 @@ const AddMural = props => {
                 max="1000"
               />
             </section>
-            <button>Submit</button>
+            <Button color="secondary">Submit</Button>
           </form>
         </main>
       </>

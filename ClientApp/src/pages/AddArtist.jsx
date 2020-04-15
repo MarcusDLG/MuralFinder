@@ -66,7 +66,7 @@ const AddArtist = () => {
             <label htmlFor="">Instagram</label>
             <input type="text" name="Instagram" onChange={updateArtistData} />
           </section>
-          <button color="success">Submit</button>
+          <Button color="secondary">Submit</Button>
         </form>
       </>
     )

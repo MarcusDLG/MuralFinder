@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MuralFinder.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200413192954_NotTheLastTime")]
-    partial class NotTheLastTime
+    [Migration("20200415150458_finalTest")]
+    partial class finalTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
