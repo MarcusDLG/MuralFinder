@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReactMapGL from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 // import Footer from './Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +10,9 @@ import Footer from '../components/Footer'
 const MuralDetails = props => {
   const [mural, setMural] = useState({ artist: {} })
   const muralId = props.match.params.muralId
+  // const muralLongitude = parseFloat(mural.longitude)
+  // const muralLatitude = parseFloat(mural.latitude)
+  // console.log(muralLongitude)
 
   const getMuralData = async () => {
     const resp = await axios.get('/api/murals/' + muralId)
@@ -19,12 +22,13 @@ const MuralDetails = props => {
 
   const TOKEN =
     'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
+
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    // latitude: mural.latitude,
-    // longitude: mural.longitude,
-    zoom: 14,
+    latitude: 27.9506,
+    longitude: -82.4572,
+    zoom: 11,
   })
 
   useEffect(() => {
@@ -60,7 +64,18 @@ const MuralDetails = props => {
           </main>
           <section className="map">
             <section className="map-container">
-              <ReactMapGL {...viewport} mapboxApiAccessToken={TOKEN} />
+              <ReactMapGL
+                {...viewport}
+                onChange={setViewport}
+                mapboxApiAccessToken={TOKEN}
+              />
+              {/* <Marker
+                longitude={muralLongitude}
+                latitude={muralLatitude}
+                key={mural.Id}
+              >
+                📸
+              </Marker> */}
             </section>
           </section>
         </section>

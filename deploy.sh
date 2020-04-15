@@ -1,8 +1,8 @@
-docker build -t MuralFinder-image .
+ docker build -t mural-finder-image .
 
-docker tag MuralFinder-image registry.heroku.com/MuralFinder/web
+docker tag mural-finder-image registry.heroku.com/kastle-mural-finder/web
 
 
-docker push registry.heroku.com/MuralFinder/web
+docker push registry.heroku.com/kastle-mural-finder/web
 
-heroku container:release web -a MuralFinder
+heroku container:release web -a kastle-mural-finder
