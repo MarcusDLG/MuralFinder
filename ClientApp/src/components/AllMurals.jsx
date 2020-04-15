@@ -30,10 +30,12 @@ const AllMurals = () => {
             return (
               <li className="image-tile" key={mural.id}>
                 <img src={mural.imageUrl} alt="" />
-                <section className="mural-info">
-                  <p>{mural.name}</p>
-                  {/* <p>{mural.artist}</p> */}
-                </section>
+                <Link to={`./mural/${mural.id}`}>
+                  <section className="mural-info">
+                    <p>{mural.name}</p>
+                    {/* <p>{mural.artist}</p> */}
+                  </section>
+                </Link>
               </li>
             )
           })}

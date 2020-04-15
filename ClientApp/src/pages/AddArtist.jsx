@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import { Button } from 'reactstrap'
 const AddArtist = () => {
   const [artist, setArtist] = useState({})
   const [wasSuccessfullyCreated, setWasSuccessfullyCreated] = useState({
@@ -65,7 +66,7 @@ const AddArtist = () => {
             <label htmlFor="">Instagram</label>
             <input type="text" name="Instagram" onChange={updateArtistData} />
           </section>
-          <button>Submit</button>
+          <button color="success">Submit</button>
         </form>
       </>
     )

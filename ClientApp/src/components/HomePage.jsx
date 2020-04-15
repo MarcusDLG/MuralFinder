@@ -14,8 +14,8 @@ const HomePage = () => {
         <p>
           Stumbling across the murals of Tampa Bay can be an extremely fun
           process, but what happens when you don't know where to find them or
-          which ones you've seen? We've done the searching, now go get that
-          picture!
+          which ones you've seen?{' '}
+          <strong>We've done the searching, now go get that picture!</strong>
         </p>
       </section>
       <section className="cta">

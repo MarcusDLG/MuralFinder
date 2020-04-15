@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 const AddMural = props => {
   console.log(props)
