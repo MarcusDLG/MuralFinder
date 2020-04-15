@@ -13,8 +13,7 @@ const AddArtist = () => {
     const key = e.target.name
     const value = e.target.value
     setArtist(prevArtist => {
-      prevArtist[key] = value
-      return prevArtist
+      return { ...prevArtist, [key]: value }
     })
     console.log(artist)
   }

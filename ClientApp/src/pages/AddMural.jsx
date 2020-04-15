@@ -27,6 +27,8 @@ const AddMural = props => {
       })
       .then(resp => {
         console.log(resp.data)
+        // const key = mural.imageUrl
+        // const value = resp.data.secureUri
         setMural(prevMural => {
           mural.imageUrl = resp.data.secureUri
           return prevMural
