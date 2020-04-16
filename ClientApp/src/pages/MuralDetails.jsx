@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
-// import Footer from './Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import PageLoader from '../components/PageLoader'
 import Footer from '../components/Footer'
+import { parse } from 'querystring'
 
 const MuralDetails = props => {
-  const [mural, setMural] = useState({ artist: {} })
+  const [mural, setMural] = useState({
+    artist: {},
+    latitude: 10,
+    longitude: 10,
+  })
   const muralId = props.match.params.muralId
   // const muralLongitude = parseFloat(mural.longitude)
   // const muralLatitude = parseFloat(mural.latitude)
@@ -38,7 +42,7 @@ const MuralDetails = props => {
     // const latitude = props.mural.latitude
     // const longitude = props.mural.longitude
     //re-render map function to make this work
-
+    console.log(mural)
     return (
       <>
         <section className="single-mural">
@@ -69,7 +73,10 @@ const MuralDetails = props => {
                 onViewportChange={setViewport}
                 mapboxApiAccessToken={TOKEN}
               >
-                <Marker latitude={27.9506} longitude={-82.4572}>
+                <Marker
+                  latitude={parseFloat(mural.latitude)}
+                  longitude={parseFloat(mural.longitude)}
+                >
                   📍
                 </Marker>
               </ReactMapGL>

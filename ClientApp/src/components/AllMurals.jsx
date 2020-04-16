@@ -7,7 +7,12 @@ import ReactMapGL, { Marker } from 'react-map-gl'
 import PageLoader from './PageLoader'
 
 const AllMurals = () => {
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState([
+    {
+      latitude: 10,
+      longitude: 10,
+    },
+  ])
   const getAllMurals = async () => {
     const resp = await axios.get('/api/Murals')
     console.log(resp.data)
@@ -30,6 +35,7 @@ const AllMurals = () => {
   }, [])
 
   if (results) {
+    console.log(results)
     return (
       <>
         {/* <section className="search-container">
@@ -46,7 +52,24 @@ const AllMurals = () => {
                 {...viewport}
                 mapboxApiAccessToken={TOKEN}
                 onViewportChange={setViewport}
-              />
+              >
+                {results.map(mural => {
+                  return (
+                    <Marker
+                      latitude={parseFloat(mural.latitude)}
+                      longitude={parseFloat(mural.longitude)}
+                    >
+                      📍
+                    </Marker>
+                  )
+                })}
+                {/* <Marker
+                  latitude={parseFloat(mural.latitude)}
+                  longitude={parseFloat(mural.longitude)}
+                >
+                  📍
+                </Marker> */}
+              </ReactMapGL>
             </section>
           </section>
 
