@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import ReactMapGL, { Marker } from 'react-map-gl'
+import PageLoader from './PageLoader'
 
 const AllMurals = () => {
   const [results, setResults] = useState([])
@@ -21,53 +22,55 @@ const AllMurals = () => {
     latitude: 27.9506,
     longitude: -82.4572,
     zoom: 11,
+    interactive: true,
   })
 
   useEffect(() => {
     getAllMurals()
   }, [])
-  return (
-    <>
-      {/* <section className="search-container">
+
+  if (results) {
+    return (
+      <>
+        {/* <section className="search-container">
         <input type="search" />
         <button className="search-button">
           <FontAwesomeIcon icon={faSprayCan} className="spray-can" />
           Search!
         </button>
       </section> */}
-      <main className="mural-results">
-        <section className="map">
-          <section className="map-container">
-            <ReactMapGL {...viewport} mapboxApiAccessToken={TOKEN} />
+        <main className="mural-results">
+          <section className="map">
+            <section className="map-container">
+              <ReactMapGL
+                {...viewport}
+                mapboxApiAccessToken={TOKEN}
+                onViewportChange={setViewport}
+              />
+            </section>
           </section>
-        </section>
 
-        <ul>
-          {results.map(mural => {
-            return (
-              <li className="image-tile" key={mural.id}>
-                <img src={mural.imageUrl} alt="" />
-                <Link to={`./mural/${mural.id}`}>
-                  <section className="mural-info">
-                    <p>{mural.name}</p>
-                    {/* <p>{mural.artist}</p> */}
-                  </section>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-
-        {/* <ul></ul>
-        <section className="no-results-message">
-          <p>
-            No Murals Found. Would you like to{' '}
-            <Link to="/addArtist">add an artist?</Link>
-          </p>
-        </section> */}
-      </main>
-    </>
-  )
+          <ul>
+            {results.map(mural => {
+              return (
+                <li className="image-tile" key={mural.id}>
+                  <img src={mural.imageUrl} alt="" />
+                  <Link to={`./mural/${mural.id}`}>
+                    <section className="mural-info">
+                      <p>{mural.name}</p>
+                      {/* <p>{mural.artist}</p> */}
+                    </section>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </main>
+      </>
+    )
+  } else {
+    return <PageLoader />
+  }
 }
 
 export default AllMurals

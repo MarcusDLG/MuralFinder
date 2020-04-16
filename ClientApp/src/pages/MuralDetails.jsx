@@ -66,16 +66,13 @@ const MuralDetails = props => {
             <section className="map-container">
               <ReactMapGL
                 {...viewport}
-                onChange={setViewport}
+                onViewportChange={setViewport}
                 mapboxApiAccessToken={TOKEN}
-              />
-              {/* <Marker
-                longitude={muralLongitude}
-                latitude={muralLatitude}
-                key={mural.Id}
               >
-                📸
-              </Marker> */}
+                <Marker latitude={27.9506} longitude={-82.4572}>
+                  📍
+                </Marker>
+              </ReactMapGL>
             </section>
           </section>
         </section>
