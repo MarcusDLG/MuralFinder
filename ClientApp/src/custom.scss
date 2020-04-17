@@ -51,7 +51,7 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 70vh;
+  height: 80vh;
   // width: 100%;
   width: auto;
   display: flex;
@@ -74,7 +74,26 @@ footer {
     }
   }
 }
+.declaration {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 5rem;
+  background-color: #2e2e3a;
+  align-items: center;
+  justify-content: center;
+  color: #de9151;
 
+  h1 {
+    margin: 0;
+    // color: #de9151;
+    text-align: center;
+  }
+  .retro-camera {
+    color: #de9151;
+    padding-bottom: 1rem;
+  }
+}
 .who-we-are {
   background-color: #de9151;
   margin: 0;

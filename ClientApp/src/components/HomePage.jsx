@@ -4,19 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
-
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 const HomePage = () => {
   return (
     <>
+      <section className="declaration">
+        <FontAwesomeIcon icon={faCameraRetro} className="retro-camera" />
+        <h1>We've done the searching, now go get that picture!</h1>
+      </section>
       <section className="who-we-are">
-        <FontAwesomeIcon icon={faCameraRetro} className="retro-camera" />{' '}
-        <h1>Mural Book:</h1>
+        <h1>
+          <strong>Mural Book:</strong>
+        </h1>
         <p>
           Stumbling across the murals of Tampa Bay can be an extremely fun
           process, but what happens when you don't know where to find them or
           which ones you've seen?{' '}
-          <strong>We've done the searching, now go get that picture!</strong>
         </p>
+        <FontAwesomeIcon icon={faSearch} className="retro-camera" />{' '}
       </section>
       <section className="cta">
         {/* <h3 className="hero-header">
