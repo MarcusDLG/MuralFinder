@@ -201,6 +201,9 @@ footer {
     padding: 1rem;
   }
   .image-tile {
+    border: 0.1rem solid #2e2e3a;
+    border-radius: 1rem;
+    margin: 1rem 0;
     img {
       max-width: 100%;
       height: auto;
@@ -208,6 +211,8 @@ footer {
     }
     .mural-info {
       text-align: center;
+      color: #2e2e3a;
+      font-size: 2rem;
     }
   }
 }
