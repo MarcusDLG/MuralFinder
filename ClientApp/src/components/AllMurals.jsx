@@ -79,8 +79,8 @@ const AllMurals = () => {
             {results.map(mural => {
               return (
                 <li className="image-tile" key={mural.id}>
-                  <img src={mural.imageUrl} alt="" />
                   <Link to={`./mural/${mural.id}`}>
+                    <img src={mural.imageUrl} alt="" />
                     <section className="mural-info">
                       <p>{mural.name}</p>
                       {/* <p>{mural.artist}</p> */}
