@@ -258,8 +258,8 @@ footer {
     .map-container {
       grid-column-start: 2;
       grid-column-end: 8;
+      max-width: auto;
       height: 20rem;
-      width: 100%;
     }
   }
 }

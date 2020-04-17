@@ -70,6 +70,7 @@ const MuralDetails = props => {
             <section className="map-container">
               <ReactMapGL
                 {...viewport}
+                width="75vw"
                 onViewportChange={setViewport}
                 mapboxApiAccessToken={TOKEN}
               >

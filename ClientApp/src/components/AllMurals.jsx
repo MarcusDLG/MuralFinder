@@ -50,6 +50,8 @@ const AllMurals = () => {
             <section className="map-container">
               <ReactMapGL
                 {...viewport}
+                width="100vw"
+                // height="100vh"
                 mapboxApiAccessToken={TOKEN}
                 onViewportChange={setViewport}
               >
