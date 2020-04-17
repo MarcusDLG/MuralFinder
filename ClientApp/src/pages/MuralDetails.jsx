@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -80,6 +80,10 @@ const MuralDetails = props => {
                 >
                   📍
                 </Marker>
+                <GeolocateControl
+                  positionOptions={{ enableHighAccuracy: true }}
+                  trackUserLocation={true}
+                />
               </ReactMapGL>
             </section>
           </section>

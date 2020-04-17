@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import ReactMapGL, { Marker } from 'react-map-gl'
+import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import PageLoader from './PageLoader'
 
 const AllMurals = () => {
@@ -65,12 +65,10 @@ const AllMurals = () => {
                     </Marker>
                   )
                 })}
-                {/* <Marker
-                  latitude={parseFloat(mural.latitude)}
-                  longitude={parseFloat(mural.longitude)}
-                >
-                  📍
-                </Marker> */}
+                <GeolocateControl
+                  positionOptions={{ enableHighAccuracy: true }}
+                  trackUserLocation={true}
+                />
               </ReactMapGL>
             </section>
           </section>
