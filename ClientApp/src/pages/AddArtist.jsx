@@ -40,7 +40,7 @@ const AddArtist = () => {
       <Redirect
         to={{
           state: { artist: wasSuccessfullyCreated.newArtistInformation },
-          pathname: `/artist/${wasSuccessfullyCreated.newArtistInformation.id}`,
+          pathname: `/artist/${wasSuccessfullyCreated.newArtistInformation.id}/add`,
         }}
       />
     )

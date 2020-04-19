@@ -39,12 +39,12 @@ const AllMurals = () => {
     return (
       <>
         {/* <section className="search-container">
-        <input type="search" />
-        <button className="search-button">
-          <FontAwesomeIcon icon={faSprayCan} className="spray-can" />
-          Search!
-        </button>
-      </section> */}
+          <input type="search" />
+          <button className="search-button" onClick={searchMurals}>
+            <FontAwesomeIcon icon={faSprayCan} className="spray-can" />
+            Search!
+          </button>
+        </section> */}
         <main className="mural-results">
           <section className="map">
             <section className="map-container">

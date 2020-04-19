@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MuralFinder.Migrations
 {
-    public partial class finalTest : Migration
+    public partial class RebuildForDesktop : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
