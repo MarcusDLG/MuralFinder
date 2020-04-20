@@ -331,22 +331,24 @@ footer {
     padding: 2rem;
     margin: 0;
   }
-
-  .image-tile {
-    border-radius: 1rem;
-    // box-shadow: 0.5rem 0.5rem #888888;
-    margin: 1rem 0;
-    border: 0.2rem solid #157a6e;
-    background-color: #de9151;
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.9rem;
-    }
-    .mural-info {
-      text-align: center;
-      color: #2e2e3a;
-      font-size: 2rem;
+  .murals {
+    padding: 2rem;
+    .image-tile {
+      border-radius: 1rem;
+      // box-shadow: 0.5rem 0.5rem #888888;
+      margin: 1rem 0;
+      border: 0.2rem solid #157a6e;
+      background-color: #de9151;
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.9rem;
+      }
+      .mural-info {
+        text-align: center;
+        color: #2e2e3a;
+        font-size: 2rem;
+      }
     }
   }
 }
