@@ -167,7 +167,7 @@ footer {
   }
 }
 
-//Search Page
+//All Murals / Search Page
 .search-container {
   display: flex;
   justify-content: center;
@@ -215,6 +215,12 @@ footer {
       color: #2e2e3a;
       font-size: 2rem;
     }
+  }
+  .map-container {
+    grid-column-start: 2;
+    grid-column-end: 8;
+    height: 20rem;
+    width: 100%;
   }
 }
 
@@ -292,15 +298,7 @@ footer {
   }
 }
 
-// .map {
-//   // background-color: #157a6e;
-//   display: grid;
-//   grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 0;
-//   padding: 0;
-//   padding: 1rem 0;
+//Artist Details Page
 
 .artist-page {
   color: #2e2e3a;
