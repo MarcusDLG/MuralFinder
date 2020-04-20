@@ -221,6 +221,14 @@ footer {
     grid-column-end: 8;
     height: 20rem;
     width: 100%;
+    .popup-window {
+      height: auto;
+      width: 10rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
 }
 

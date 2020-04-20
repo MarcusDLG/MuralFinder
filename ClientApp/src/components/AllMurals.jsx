@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
+import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import PageLoader from './PageLoader'
 
 const AllMurals = () => {
@@ -17,6 +17,15 @@ const AllMurals = () => {
     const resp = await axios.get('/api/Murals')
     console.log(resp.data)
     setResults(resp.data)
+  }
+
+  const [showPopup, setShowPopup] = useState(false)
+  const [selectedPlace, setSelectedPlace] = useState({})
+
+  const markerClicked = place => {
+    console.log('marker clcked', place)
+    setSelectedPlace(place)
+    setShowPopup(true)
   }
 
   const TOKEN =
@@ -55,13 +64,37 @@ const AllMurals = () => {
                 mapboxApiAccessToken={TOKEN}
                 onViewportChange={setViewport}
               >
+                {showPopup && (
+                  <Popup
+                    latitude={parseFloat(selectedPlace.latitude)}
+                    longitude={parseFloat(selectedPlace.longitude)}
+                    closeButton={true}
+                    closeOnClick={false}
+                    onClose={() => setShowPopup(false)}
+                    offsetTop={-5}
+                  >
+                    <div className="popup-window">
+                      <Link to={`/mural/${selectedPlace.id}`}>
+                        <img
+                          src={selectedPlace.imageUrl}
+                          alt={selectedPlace.name}
+                        />
+                      </Link>
+                    </div>
+                  </Popup>
+                )}
                 {results.map(mural => {
                   return (
                     <Marker
                       latitude={parseFloat(mural.latitude)}
                       longitude={parseFloat(mural.longitude)}
                     >
-                      📍
+                      <section
+                        className="marker"
+                        onClick={() => markerClicked(mural)}
+                      >
+                        📍
+                      </section>
                     </Marker>
                   )
                 })}
