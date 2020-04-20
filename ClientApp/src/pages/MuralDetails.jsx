@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -53,7 +54,9 @@ const MuralDetails = props => {
             <section className="mural-info">
               <h1>{mural.name}</h1>
               <section className="artist-info">
-                <h5>{mural.artist.name}</h5>
+                <Link to={`/artist/${mural.artist.id}`}>
+                  <h5>{mural.artist.name}</h5>
+                </Link>
                 <section className="spray-icon">
                   <FontAwesomeIcon icon={faSprayCan} />
                 </section>

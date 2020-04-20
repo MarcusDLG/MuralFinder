@@ -29,16 +29,33 @@ namespace MuralFinder.Controllers
 
     // GET: api/Artists/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Artist>> GetArtist(int id)
+    public async Task<ActionResult> GetArtist(int id)
     {
-      var artist = await _context.Artists.FindAsync(id);
+      var artist = await _context.Artists.Include(m => m.Murals)
+      .Select(s => new
+      {
+        Id = s.Id,
+        Name = s.Name,
+        Website = s.Website,
+        Facebook = s.Facebook,
+        Instagram = s.Instagram,
+        Murals = s.Murals.Select(n => new
+        {
+          Id = n.Id,
+          Name = n.Name,
+          ImageUrl = n.ImageUrl,
+          Latitude = n.Latitude,
+          Longitude = n.Longitude,
+        }
+        )
+      }).FirstOrDefaultAsync(a => a.Id == id);
 
       if (artist == null)
       {
         return NotFound();
       }
 
-      return artist;
+      return Ok(artist);
     }
 
     // PUT: api/Artists/5

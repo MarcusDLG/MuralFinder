@@ -46,6 +46,7 @@ namespace MuralFinder.Controllers
         Longitude = s.Longitude,
         Artist = new
         {
+          Id = s.Artist.Id,
           Name = s.Artist.Name,
           Website = s.Artist.Website,
           Facebook = s.Artist.Facebook,
