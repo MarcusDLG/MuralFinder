@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MuralFinder.Models;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace MuralFinder
 {
@@ -36,8 +39,19 @@ namespace MuralFinder
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 });
       services.AddDbContext<DatabaseContext>();
-    }
+      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+                {
+                  options.TokenValidationParameters = new TokenValidationParameters
+                  {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
 
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("When you are wishing we had this stuff, I am going to be merciless in my mockery"))
+                  };
+                });
+    }
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
@@ -65,6 +79,9 @@ namespace MuralFinder
 
       });
       app.UseRouting();
+      app.UseAuthorization();
+      app.UseAuthentication();
+
 
       app.UseEndpoints(endpoints =>
       {

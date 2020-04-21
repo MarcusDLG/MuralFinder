@@ -10,6 +10,7 @@ namespace MuralFinder.Models
 
     public DbSet<Mural> Murals { get; set; }
     public DbSet<Artist> Artists { get; set; }
+    public DbSet<User> Users { get; set; }
 
 
 

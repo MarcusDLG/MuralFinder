@@ -9,6 +9,9 @@ import './custom.scss'
 import MuralDetails from './pages/MuralDetails'
 import AddArtist from './pages/AddArtist'
 import ViewArtist from './pages/ViewArtist'
+import SignUp from './pages/SignUp'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import Login from './pages/Login'
 export default class App extends Component {
   static displayName = App.name
 
@@ -17,6 +20,8 @@ export default class App extends Component {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/find" component={Search} />
           <Route exact path="/addArtist" component={AddArtist} />
           <Route exact path="/artist/:artistId" component={ViewArtist} />

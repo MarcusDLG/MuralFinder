@@ -4,6 +4,7 @@ import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
+import Footer from '../components/Footer'
 
 const ViewArtist = props => {
   const artistId = props.match.params.artistId
@@ -91,6 +92,7 @@ const ViewArtist = props => {
           </section>
         </section>
       </main>
+      <Footer />
     </>
   )
 }

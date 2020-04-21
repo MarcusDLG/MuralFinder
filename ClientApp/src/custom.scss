@@ -360,3 +360,18 @@ footer {
     }
   }
 }
+
+//signup page
+.sign-up {
+  display: grid;
+  grid-template-columns: 50%;
+  justify-content: center;
+  margin: 0;
+  padding: 10rem 0;
+  background-color: #2e2e3a;
+  color: #de9151;
+}
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}

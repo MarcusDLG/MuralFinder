@@ -37,6 +37,7 @@ const AllMurals = () => {
     longitude: -82.4572,
     zoom: 11,
     interactive: true,
+    // style: 'satellite-streets-v11',
   })
 
   useEffect(() => {
@@ -59,6 +60,7 @@ const AllMurals = () => {
             <section className="map-container">
               <ReactMapGL
                 {...viewport}
+                // style="satellite-streets-v11"
                 width="100vw"
                 // height="100vh"
                 mapboxApiAccessToken={TOKEN}
