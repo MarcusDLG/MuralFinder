@@ -48,7 +48,7 @@ namespace MuralFinder
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("When you are wishing we had this stuff, I am going to be merciless in my mockery"))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWT-KEY"]))
                   };
                 });
     }

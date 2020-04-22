@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
+import { faSprayCan, faTrailer } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import PageLoader from '../components/PageLoader'
 import Footer from '../components/Footer'
-import { parse } from 'querystring'
 
 const MuralDetails = props => {
   const [mural, setMural] = useState({
@@ -23,6 +23,19 @@ const MuralDetails = props => {
     const resp = await axios.get('/api/murals/' + muralId)
     console.log({ mural: resp.data })
     setMural(resp.data)
+  }
+
+  const saveMuralToUser = async () => {
+    console.log('mural button clicked')
+    const resp = await axios.post(
+      `/api/bookmark/${mural.id}`,
+      {},
+      {
+        headers: {
+          AUthorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      }
+    )
   }
 
   const TOKEN =
@@ -43,7 +56,7 @@ const MuralDetails = props => {
     // const latitude = props.mural.latitude
     // const longitude = props.mural.longitude
     //re-render map function to make this work
-    console.log(mural)
+    // console.log(mural)
     return (
       <>
         <section className="single-mural">
@@ -64,7 +77,17 @@ const MuralDetails = props => {
               <h6>
                 {mural.address}, {mural.city}, {mural.state}
               </h6>
+              {localStorage.getItem('token') ? (
+                <section className="bookmark">
+                  <button onClick={saveMuralToUser}>
+                    <FontAwesomeIcon icon={faStar} /> Favorite
+                  </button>
+                </section>
+              ) : (
+                <></>
+              )}
             </section>
+
             <section className="mural-description">
               <p className="description">{mural.description}</p>
             </section>
@@ -81,7 +104,9 @@ const MuralDetails = props => {
                   latitude={parseFloat(mural.latitude)}
                   longitude={parseFloat(mural.longitude)}
                 >
-                  📍
+                  <span role="img" aria-label="marker">
+                    📍
+                  </span>
                 </Marker>
                 <GeolocateControl
                   positionOptions={{ enableHighAccuracy: true }}

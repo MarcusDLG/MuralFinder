@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MuralFinder.Models;
 using MuralFinder.ViewModels;
@@ -20,9 +21,11 @@ namespace MuralFinder.Controllers
   public class AuthController : ControllerBase
   {
     private DatabaseContext _context;
+    readonly private string JWT_KEY;
 
-    public AuthController(DatabaseContext context)
+    public AuthController(DatabaseContext context, IConfiguration config)
     {
+      JWT_KEY = config["JWT-KEY"];
       _context = context;
     }
     private string CreateJWT(User user)
@@ -39,7 +42,7 @@ namespace MuralFinder.Controllers
       }),
         Expires = expirationTime,
         SigningCredentials = new SigningCredentials(
-               new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SOME REALLY LONG SECRET STRING")),
+               new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JWT_KEY)),
               SecurityAlgorithms.HmacSha256Signature
           )
       };
@@ -72,5 +75,33 @@ namespace MuralFinder.Controllers
       return Ok(new { Token = CreateJWT(user), user = user });
 
     }
+    [HttpPost("login")]
+    public async Task<ActionResult> Login(UserLogin userLogin)
+    {
+
+      // find the user
+      var user = await _context
+        .Users
+        .FirstOrDefaultAsync(user => user.Email.ToLower() == userLogin.Email.ToLower());
+      if (user == null)
+      {
+        return BadRequest("User does not exists");
+      }
+      // validate the password
+      var results = new PasswordHasher<User>().VerifyHashedPassword(user, user.HashedPassword, userLogin.Password);
+
+      if (results == PasswordVerificationResult.Success)
+      {
+        // create the token
+        user.HashedPassword = null;
+        return Ok(new { Token = CreateJWT(user), user = user });
+      }
+      else
+      {
+        return BadRequest("Incorrect password!");
+      }
+
+    }
+
   }
 }

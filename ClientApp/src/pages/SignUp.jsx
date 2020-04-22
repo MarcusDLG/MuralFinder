@@ -24,6 +24,7 @@ const SignUp = () => {
     e.preventDefault()
     console.log('sending new user', newUser)
     const resp = await axios.post('/auth/signup', newUser)
+    localStorage.setItem('token', resp.data.token)
     if (resp.status === 200 || resp.status === 201) {
       // do something something else
       setWasSuccessfullyCreated({
@@ -38,7 +39,7 @@ const SignUp = () => {
     console.log(wasSuccessfullyCreated.shouldRedirect)
     return (
       <Redirect
-        to="/find"
+        to="/profile"
         // to={{
         //   state: { artist: wasSuccessfullyCreated.newArtistInformation },
         //   pathname: `/artist/${wasSuccessfullyCreated.newArtistInformation.id}/add`,

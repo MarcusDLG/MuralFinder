@@ -50,7 +50,9 @@ const ViewArtist = props => {
                     latitude={parseFloat(mural.latitude)}
                     longitude={parseFloat(mural.longitude)}
                   >
-                    📍
+                    <span role="img" aria-label="marker">
+                      📍
+                    </span>
                   </Marker>
                 )
               })}

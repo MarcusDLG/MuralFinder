@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MuralFinder.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200420135349_RemoveJsonIgnoreFromArtist")]
-    partial class RemoveJsonIgnoreFromArtist
+    [Migration("20200422195637_AddedUsersAndBookmarks")]
+    partial class AddedUsersAndBookmarks
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,6 +43,28 @@ namespace MuralFinder.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Artists");
+                });
+
+            modelBuilder.Entity("MuralFinder.Models.Bookmark", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("MuralId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MuralId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookmarks");
                 });
 
             modelBuilder.Entity("MuralFinder.Models.Mural", b =>
@@ -87,6 +109,42 @@ namespace MuralFinder.Migrations
                     b.HasIndex("ArtistId");
 
                     b.ToTable("Murals");
+                });
+
+            modelBuilder.Entity("MuralFinder.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("HashedPassword")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MuralFinder.Models.Bookmark", b =>
+                {
+                    b.HasOne("MuralFinder.Models.Mural", "Mural")
+                        .WithMany()
+                        .HasForeignKey("MuralId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MuralFinder.Models.User", "User")
+                        .WithMany("Bookmarks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MuralFinder.Models.Mural", b =>

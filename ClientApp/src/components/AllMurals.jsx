@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import PageLoader from './PageLoader'
@@ -95,7 +95,9 @@ const AllMurals = () => {
                         className="marker"
                         onClick={() => markerClicked(mural)}
                       >
-                        📍
+                        <span role="img" aria-label="marker">
+                          📍
+                        </span>
                       </section>
                     </Marker>
                   )

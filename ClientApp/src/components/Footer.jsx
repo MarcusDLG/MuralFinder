@@ -8,7 +8,7 @@ const Footer = () => {
       <footer>
         <p>
           Made with{' '}
-          <span>
+          <span role="img" aria-label="heart">
             <FontAwesomeIcon icon={faHeart} className="footer-heart" />{' '}
             <FontAwesomeIcon icon={faHeart} className="footer-heart" />{' '}
             <FontAwesomeIcon icon={faHeart} className="footer-heart" />{' '}

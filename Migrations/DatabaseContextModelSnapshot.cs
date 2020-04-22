@@ -43,6 +43,28 @@ namespace MuralFinder.Migrations
                     b.ToTable("Artists");
                 });
 
+            modelBuilder.Entity("MuralFinder.Models.Bookmark", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("MuralId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MuralId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bookmarks");
+                });
+
             modelBuilder.Entity("MuralFinder.Models.Mural", b =>
                 {
                     b.Property<int>("Id")
@@ -106,6 +128,21 @@ namespace MuralFinder.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MuralFinder.Models.Bookmark", b =>
+                {
+                    b.HasOne("MuralFinder.Models.Mural", "Mural")
+                        .WithMany()
+                        .HasForeignKey("MuralId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MuralFinder.Models.User", "User")
+                        .WithMany("Bookmarks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MuralFinder.Models.Mural", b =>

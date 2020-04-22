@@ -10,6 +10,14 @@ const Hero = () => {
         <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
         <p>Find Murals</p>
       </Link>
+      <section className="user">
+        <Link to="/signup" className="sign-up">
+          <p>Sign Up</p>
+        </Link>
+        <Link to="/login" className="login">
+          <p>Login</p>
+        </Link>
+      </section>
     </>
   )
 }
