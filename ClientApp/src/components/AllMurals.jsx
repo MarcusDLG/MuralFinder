@@ -109,7 +109,6 @@ const AllMurals = () => {
               </ReactMapGL>
             </section>
           </section>
-
           <ul>
             {results.map(mural => {
               return (
