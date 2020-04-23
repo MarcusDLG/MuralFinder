@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSprayCan, faTrailer } from '@fortawesome/free-solid-svg-icons'
+import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import PageLoader from '../components/PageLoader'
@@ -21,6 +21,8 @@ const MuralDetails = props => {
 
   const getMuralData = async () => {
     const resp = await axios.get('/api/murals/' + muralId)
+    //add headers Authorization to end of line 23 like the api call on 36 and 37
+
     console.log({ mural: resp.data })
     setMural(resp.data)
   }
@@ -32,7 +34,7 @@ const MuralDetails = props => {
       {},
       {
         headers: {
-          AUthorization: 'Bearer ' + localStorage.getItem('token'),
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
       }
     )
@@ -98,7 +100,7 @@ const MuralDetails = props => {
                 {...viewport}
                 width="75vw"
                 onViewportChange={setViewport}
-                mapboxApiAccessToken={TOKEN}
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
               >
                 <Marker
                   latitude={parseFloat(mural.latitude)}
