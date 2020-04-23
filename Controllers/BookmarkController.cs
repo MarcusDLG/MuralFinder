@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MuralFinder.Models;
 
 namespace MuralFinder.Controllers
@@ -26,14 +27,27 @@ namespace MuralFinder.Controllers
     public async Task<ActionResult> BookmarkMuralToUser(int muralId)
     {
       var userId = int.Parse(User.Claims.FirstOrDefault(f => f.Type == "id").Value);
-      var bookmark = new Bookmark
+      //check to see if user has already bookmarked mural. 
+      var doesBookmarkExist = await _context.Bookmarks.FirstOrDefaultAsync(m => m.MuralId == muralId && m.UserId == userId);
+      if (doesBookmarkExist != null)
       {
-        MuralId = muralId,
-        UserId = userId,
-      };
-      _context.Bookmarks.Add(bookmark);
-      await _context.SaveChangesAsync();
-      return Ok(bookmark);
+        // return BadRequest("Bookmark already exists");
+        _context.Bookmarks.Remove(doesBookmarkExist);
+        await _context.SaveChangesAsync();
+        return Ok(doesBookmarkExist);
+      }
+      else
+      {
+
+        var bookmark = new Bookmark
+        {
+          MuralId = muralId,
+          UserId = userId,
+        };
+        _context.Bookmarks.Add(bookmark);
+        await _context.SaveChangesAsync();
+        return Ok(bookmark);
+      }
     }
   }
 }

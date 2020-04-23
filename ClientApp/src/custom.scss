@@ -344,6 +344,14 @@ footer {
     grid-column-end: 8;
     height: 20rem;
     width: 100%;
+    .popup-window {
+      height: auto;
+      width: 10rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
   .artist-information {
     display: grid;
@@ -414,6 +422,20 @@ footer {
 
 //profile page
 .profile-page {
+  .map-container {
+    grid-column-start: 2;
+    grid-column-end: 8;
+    height: 20rem;
+    width: 100%;
+    .popup-window {
+      height: auto;
+      width: 10rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
   .user-details {
     padding: 0;
     margin: 0;

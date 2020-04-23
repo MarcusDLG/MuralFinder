@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
+import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
@@ -22,6 +22,15 @@ const ViewArtist = props => {
     interactive: true,
   })
 
+  const [showPopup, setShowPopup] = useState(false)
+  const [selectedPlace, setSelectedPlace] = useState({})
+
+  const markerClicked = place => {
+    console.log('marker clcked', place)
+    setSelectedPlace(place)
+    setShowPopup(true)
+  }
+
   const getArtistData = async () => {
     const resp = await axios.get('/api/artists/' + artistId)
     console.log(resp.data)
@@ -39,20 +48,45 @@ const ViewArtist = props => {
           <section className="map-container">
             <ReactMapGL
               {...viewport}
+              // style="satellite-streets-v11"
               width="100vw"
               // height="100vh"
               mapboxApiAccessToken={TOKEN}
               onViewportChange={setViewport}
             >
+              {showPopup && (
+                <Popup
+                  latitude={parseFloat(selectedPlace.latitude)}
+                  longitude={parseFloat(selectedPlace.longitude)}
+                  closeButton={true}
+                  closeOnClick={false}
+                  onClose={() => setShowPopup(false)}
+                  offsetTop={-5}
+                >
+                  <div className="popup-window">
+                    <Link to={`/mural/${selectedPlace.id}`}>
+                      <img
+                        src={selectedPlace.imageUrl}
+                        alt={selectedPlace.name}
+                      />
+                    </Link>
+                  </div>
+                </Popup>
+              )}
               {artist.murals.map(mural => {
                 return (
                   <Marker
                     latitude={parseFloat(mural.latitude)}
                     longitude={parseFloat(mural.longitude)}
                   >
-                    <span role="img" aria-label="marker">
-                      📍
-                    </span>
+                    <section
+                      className="marker"
+                      onClick={() => markerClicked(mural)}
+                    >
+                      <span role="img" aria-label="marker">
+                        📍
+                      </span>
+                    </section>
                   </Marker>
                 )
               })}
