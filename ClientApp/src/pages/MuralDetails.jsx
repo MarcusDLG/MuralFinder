@@ -21,7 +21,7 @@ const MuralDetails = props => {
 
   const saveMuralToUser = async () => {
     console.log('mural button clicked')
-    const resp = await axios.post(
+    await axios.post(
       `/api/bookmark/${mural.id}`,
       {},
       {

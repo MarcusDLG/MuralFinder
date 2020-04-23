@@ -36,7 +36,6 @@ const AddMural = props => {
       })
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
-  const [uploadedImageUrl, setUploadedImageUrl] = useState('')
 
   const updateMuralData = e => {
     const key = e.target.name
