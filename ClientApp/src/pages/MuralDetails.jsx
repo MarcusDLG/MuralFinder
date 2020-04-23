@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSprayCan, faTrailer } from '@fortawesome/free-solid-svg-icons'
+import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import PageLoader from '../components/PageLoader'
@@ -18,12 +18,6 @@ const MuralDetails = props => {
   // const muralLongitude = parseFloat(mural.longitude)
   // const muralLatitude = parseFloat(mural.latitude)
   // console.log(muralLongitude)
-
-  const getMuralData = async () => {
-    const resp = await axios.get('/api/murals/' + muralId)
-    console.log({ mural: resp.data })
-    setMural(resp.data)
-  }
 
   const saveMuralToUser = async () => {
     console.log('mural button clicked')
@@ -50,6 +44,11 @@ const MuralDetails = props => {
   })
 
   useEffect(() => {
+    const getMuralData = async () => {
+      const resp = await axios.get('/api/murals/' + muralId)
+      console.log({ mural: resp.data })
+      setMural(resp.data)
+    }
     getMuralData()
   }, [])
   if (mural) {

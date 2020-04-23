@@ -8,16 +8,7 @@ const Profile = () => {
   const [profile, setProfile] = useState({
     bookmarks: [{ mural: { latitude: 10, longitude: 10 } }],
   })
-  const loadUserProfile = async () => {
-    const resp = await axios.get('/api/profile', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-    console.log(resp.data)
-    setProfile(resp.data)
-    console.log(profile)
-  }
+
   const TOKEN =
     'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
   const [viewport, setViewport] = useState({
@@ -38,6 +29,15 @@ const Profile = () => {
     setShowPopup(true)
   }
   useEffect(() => {
+    const loadUserProfile = async () => {
+      const resp = await axios.get('/api/profile', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      console.log(resp.data)
+      setProfile(resp.data)
+    }
     loadUserProfile()
   }, [])
   return (

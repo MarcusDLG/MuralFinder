@@ -31,15 +31,15 @@ const ViewArtist = props => {
     setShowPopup(true)
   }
 
-  const getArtistData = async () => {
-    const resp = await axios.get('/api/artists/' + artistId)
-    console.log(resp.data)
-    setArtist(resp.data)
-    // console.log(artist)
-  }
   useEffect(() => {
+    const getArtistData = async () => {
+      const resp = await axios.get('/api/artists/' + artistId)
+      console.log(resp.data)
+      setArtist(resp.data)
+      // console.log(artist)
+    }
     getArtistData()
-  }, [])
+  }, [artistId])
 
   return (
     <>

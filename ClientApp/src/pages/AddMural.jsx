@@ -30,7 +30,7 @@ const AddMural = props => {
         // const key = mural.imageUrl
         // const value = resp.data.secureUri
         setMural(prevMural => {
-          mural.imageUrl = resp.data.secureUri
+          prevMural.imageUrl = resp.data.secureUri
           return prevMural
         })
       })
@@ -82,9 +82,6 @@ const AddMural = props => {
               <p>Drag 'n' drop some files here, or click to select files</p>
             )}
           </div>
-          <section className="image-uploaded">
-            {uploadedImageUrl && <img src={uploadedImageUrl} alt="whatever" />}
-          </section>
         </div>
         <main className="mural-submission">
           <form onSubmit={addMuralToApi}>
