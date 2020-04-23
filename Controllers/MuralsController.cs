@@ -31,6 +31,14 @@ namespace MuralFinder.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult> GetMural(int id)
     {
+      // var userId = int.Parse(User.Claims.FirstOrDefault(f => f.Type == "id").Value);
+      // // if (userId == null){
+      // //   return BadRequest();
+      // // }
+      // var doesBookmarkExist = await _context.Bookmarks.FirstOrDefaultAsync(m => m.MuralId == id && m.UserId == userId);
+      // if (doesBookmarkExist){
+      //   ;
+      // }
       var mural = await _context.Murals
       .Include(i => i.Artist)
       .Select(s => new

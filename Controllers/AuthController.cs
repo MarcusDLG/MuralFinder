@@ -25,7 +25,7 @@ namespace MuralFinder.Controllers
 
     public AuthController(DatabaseContext context, IConfiguration config)
     {
-      JWT_KEY = config["JWT-KEY"];
+      JWT_KEY = config["JWT_KEY"];
       _context = context;
     }
     private string CreateJWT(User user)
