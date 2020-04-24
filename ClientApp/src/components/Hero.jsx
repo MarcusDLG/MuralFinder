@@ -6,10 +6,12 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 const Hero = () => {
   return (
     <>
-      <Link to="/find" className="call-to-action">
-        <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
-        <p>Find Murals</p>
-      </Link>
+      <section className="call-to-action">
+        <Link to="/find" className="find-murals">
+          <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
+          <p>Find Murals</p>
+        </Link>
+      </section>
       <section className="user">
         <Link to="/signup" className="sign-up">
           <p>Sign Up</p>
