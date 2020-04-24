@@ -5,6 +5,7 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSprayCan } from '@fortawesome/free-solid-svg-icons'
 import Footer from '../components/Footer'
+import '../Styles/artist-page.scss'
 
 const ViewArtist = props => {
   const artistId = props.match.params.artistId

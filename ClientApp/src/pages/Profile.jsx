@@ -3,6 +3,7 @@ import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
+import '../Styles/profile-page.scss'
 
 const Profile = () => {
   const [profile, setProfile] = useState({

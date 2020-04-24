@@ -1,0 +1,141 @@
+//Hero Section
+.hero {
+  background-image: url('../Images/CoTM.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  // width: 100%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  a {
+    display: flex;
+    height: fit-content;
+    color: #fbfbff;
+    align-items: center;
+    background-color: #2e2e3ad3;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 2rem;
+
+    &:hover {
+      background-color: #2d2d3a;
+      color: #bbb8b2;
+    }
+  }
+}
+.hp-content {
+  display: grid;
+  grid-template-columns: 100%;
+  .declaration {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 5rem;
+    background-color: #2e2e3a;
+    align-items: center;
+    justify-content: center;
+    color: #de9151;
+
+    h1 {
+      margin: 0;
+      // color: #de9151;
+      text-align: center;
+    }
+    .retro-camera {
+      color: #de9151;
+      padding-bottom: 1rem;
+    }
+  }
+  .who-we-are {
+    background-color: #de9151;
+    margin: 0;
+    padding: 5rem;
+    text-align: center;
+    color: #2e2e3a;
+
+    p {
+      margin: 0;
+      padding: 2rem;
+    }
+  }
+  .retro-camera {
+    font-size: 5rem;
+    color: #2e2e3a;
+  }
+
+  .cta {
+    background-color: #2e2e3a;
+    // border-radius: 8rem;
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .description-of-us {
+    text-align: center;
+    font-size: 1rem;
+    // background-color: #de9151;
+    border-radius: 2rem;
+    margin: 1rem 4rem 0 4rem;
+    // padding: 4rem 2.5rem;
+    color: #de9151;
+
+    .description {
+      margin: 0rem 2rem 1rem;
+      padding-bottom: 1rem;
+    }
+    .spray-can {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #de9151;
+    }
+    .call-to-action {
+      color: #2e2e3a;
+      background-color: #de9151;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+
+      &:hover {
+        background-color: #de9151ad;
+        color: #bbb8b2;
+      }
+    }
+  }
+}
+
+.call-to-action {
+  padding: 1rem;
+  // background-color: whitesmoke;
+  border: 0.1rem solid #343434;
+  background-color: #2e2e3a;
+  border-radius: 1rem;
+  color: #fbfbff;
+
+  &:hover {
+    background-color: #2e2e3ad3;
+    color: #bbb8b2;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.user {
+  display: flex;
+  a {
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 1.1rem;
+    border-radius: 1rem;
+  }
+  p {
+    margin: 0;
+  }
+}

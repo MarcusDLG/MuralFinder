@@ -1,0 +1,60 @@
+//profile page
+.profile-page {
+  .map-container {
+    grid-column-start: 2;
+    grid-column-end: 8;
+    height: 20rem;
+    width: 100%;
+    .popup-window {
+      height: auto;
+      width: 10rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .user-details {
+    padding: 0;
+    margin: 0;
+    background-color: #de9151;
+    p {
+      margin: 0;
+    }
+  }
+  .liked-murals {
+    background-color: #2e2e3a;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    h1 {
+      padding: 1rem 0 0 0;
+      color: #de9151;
+    }
+
+    ul {
+      list-style: none;
+      padding: 2rem;
+      margin: 0;
+    }
+    .image-tile {
+      background-color: #de9151;
+      border-radius: 1rem;
+      // box-shadow: 0.5rem 0.5rem #888888;
+      margin: 1rem 0;
+      border: 0.2rem solid #157a6e;
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.9rem;
+      }
+      .mural-info {
+        text-align: center;
+        color: #2e2e3a;
+        font-size: 2rem;
+        p {
+          padding: 0rem;
+        }
+      }
+    }
+  }
+}

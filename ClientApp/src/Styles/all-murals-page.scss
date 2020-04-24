@@ -1,0 +1,64 @@
+//All Murals / Search Page
+.search-container {
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 50%;
+    margin-right: 1rem;
+    border-radius: 1rem;
+  }
+
+  .search-button {
+    color: #2e2e3a;
+    background-color: #de9151;
+    border-radius: 1rem;
+  }
+}
+
+.no-results-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  color: #2e2e3a;
+}
+
+.mural-results {
+  color: #2e2e3a;
+  ul {
+    list-style: none;
+    padding: 1rem;
+  }
+  .image-tile {
+    border: 0.1rem solid #2e2e3a;
+    border-radius: 1rem;
+    // box-shadow: 0.5rem 0.5rem #888888;
+    margin: 1rem 0;
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+    .mural-info {
+      text-align: center;
+      color: #2e2e3a;
+      font-size: 2rem;
+    }
+  }
+  .map-container {
+    grid-column-start: 2;
+    grid-column-end: 8;
+    height: 20rem;
+    width: 100%;
+    .popup-window {
+      height: auto;
+      width: 10rem;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

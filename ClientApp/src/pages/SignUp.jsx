@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import '../Styles/sign-up-login.scss'
 
 const SignUp = () => {
   const [newUser, setNewUser] = useState({})

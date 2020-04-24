@@ -7,6 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import PageLoader from '../components/PageLoader'
 import Footer from '../components/Footer'
+import '../Styles/mural-details-page.scss'
 
 const MuralDetails = props => {
   const [mural, setMural] = useState({
