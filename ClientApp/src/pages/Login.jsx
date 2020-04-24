@@ -54,6 +54,12 @@ const Login = () => {
           />
           <Button color="secondary">Submit</Button>
         </form>
+        <section className="image-container">
+          <img
+            src="https://res.cloudinary.com/marcusdlg/image/upload/v1587734230/kynnssohlk9enby7as9t.jpg"
+            alt="Sparkman Wharf"
+          />
+        </section>
         <Footer className="footer" />
       </>
     )
@@ -61,3 +67,5 @@ const Login = () => {
 }
 
 export default Login
+
+//

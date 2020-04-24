@@ -107,21 +107,23 @@ const AllMurals = () => {
               </ReactMapGL>
             </section>
           </section>
-          <ul>
-            {results.map(mural => {
-              return (
-                <li className="image-tile" key={mural.id}>
-                  <Link to={`./mural/${mural.id}`}>
-                    <img src={mural.imageUrl} alt="" />
-                    <section className="mural-info">
-                      <p>{mural.name}</p>
-                      {/* <p>{mural.artist}</p> */}
-                    </section>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+          <section className="all-murals">
+            <ul>
+              {results.map(mural => {
+                return (
+                  <li className="image-tile" key={mural.id}>
+                    <Link to={`./mural/${mural.id}`}>
+                      <img src={mural.imageUrl} alt="" />
+                      <section className="mural-info">
+                        <p>{mural.name}</p>
+                        {/* <p>{mural.artist}</p> */}
+                      </section>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
         </main>
       </>
     )

@@ -98,7 +98,7 @@ const Profile = () => {
           <p>{profile.email}</p>
         </section>
         <section className="liked-murals">
-          <h1>Your favorite murals:</h1>
+          <h1>{profile.fullName}'s favorite murals:</h1>
           <ul>
             {profile.bookmarks.map(m => {
               return (

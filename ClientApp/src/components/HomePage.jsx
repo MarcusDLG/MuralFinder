@@ -22,12 +22,9 @@ const HomePage = () => {
             process, but what happens when you don't know where to find them or
             which ones you've seen?{' '}
           </p>
-          <FontAwesomeIcon icon={faSearch} className="retro-camera" />{' '}
+          <FontAwesomeIcon icon={faSearch} className="magnifying-glass" />{' '}
         </section>
-        <section className="cta">
-          {/* <h3 className="hero-header">
-            Helping you find the murals of Tampa Bay!
-          </h3> */}
+        <section className="action-statement">
           <section className="description-of-us">
             <FontAwesomeIcon icon={faSprayCan} className="spray-can" />
             <p className="description">

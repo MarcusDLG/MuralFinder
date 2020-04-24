@@ -32,6 +32,8 @@
     }
 
     ul {
+      display: grid;
+      grid-template-columns: 100%;
       list-style: none;
       padding: 2rem;
       margin: 0;
@@ -53,6 +55,23 @@
         font-size: 2rem;
         p {
           padding: 0rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-page {
+    .liked-murals {
+      h1 {
+        margin-top: 2rem;
+      }
+      ul {
+        margin: 2rem 0;
+        grid-template-columns: 50% 50%;
+        .image-tile {
+          margin: 0.5rem;
         }
       }
     }

@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 90vh;
   // width: 100%;
   width: auto;
   display: flex;
@@ -28,13 +28,27 @@
       color: #bbb8b2;
     }
   }
+  .user {
+    display: flex;
+    a {
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      padding: 1.1rem;
+      border-radius: 1rem;
+    }
+    p {
+      margin: 0;
+    }
+  }
 }
 .hp-content {
   display: grid;
   grid-template-columns: 100%;
   .declaration {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
     margin: 0;
     padding: 5rem;
     background-color: #2e2e3a;
@@ -48,94 +62,117 @@
       text-align: center;
     }
     .retro-camera {
+      margin-bottom: 2rem;
+      font-size: 5rem;
       color: #de9151;
-      padding-bottom: 1rem;
     }
   }
   .who-we-are {
+    display: grid;
+    grid-template-columns: 100%;
     background-color: #de9151;
     margin: 0;
-    padding: 5rem;
+    padding: 5rem 3rem;
     text-align: center;
+    justify-items: center;
     color: #2e2e3a;
-
+    h1 {
+      font-size: 3.5rem;
+    }
     p {
       margin: 0;
-      padding: 2rem;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+    .magnifying-glass {
+      font-size: 5rem;
+      color: #2e2e3a;
     }
   }
-  .retro-camera {
-    font-size: 5rem;
-    color: #2e2e3a;
-  }
 
-  .cta {
+  .action-statement {
     background-color: #2e2e3a;
     // border-radius: 8rem;
     padding: 5rem 0;
     text-align: center;
-  }
 
-  .description-of-us {
-    text-align: center;
-    font-size: 1rem;
-    // background-color: #de9151;
-    border-radius: 2rem;
-    margin: 1rem 4rem 0 4rem;
-    // padding: 4rem 2.5rem;
-    color: #de9151;
-
-    .description {
-      margin: 0rem 2rem 1rem;
-      padding-bottom: 1rem;
-    }
-    .spray-can {
-      font-size: 4rem;
-      margin-bottom: 1rem;
+    .description-of-us {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      border-radius: 2rem;
+      margin: 1rem 4rem 0 4rem;
       color: #de9151;
-    }
-    .call-to-action {
-      color: #2e2e3a;
-      background-color: #de9151;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
 
-      &:hover {
-        background-color: #de9151ad;
-        color: #bbb8b2;
+      p {
+        margin: 0rem 2rem 1rem;
+      }
+      .spray-can {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+        color: #de9151;
+      }
+      .call-to-action {
+        color: #2e2e3a;
+        background-color: #de9151;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+
+        &:hover {
+          background-color: #de9151ad;
+          color: #bbb8b2;
+        }
       }
     }
   }
-}
 
-.call-to-action {
-  padding: 1rem;
-  // background-color: whitesmoke;
-  border: 0.1rem solid #343434;
-  background-color: #2e2e3a;
-  border-radius: 1rem;
-  color: #fbfbff;
-
-  &:hover {
-    background-color: #2e2e3ad3;
-    color: #bbb8b2;
-  }
-
-  p {
-    margin: 0;
-  }
-}
-
-.user {
-  display: flex;
-  a {
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    padding: 1.1rem;
+  .call-to-action {
+    padding: 1rem;
+    // background-color: whitesmoke;
+    border: 0.1rem solid #343434;
+    background-color: #2e2e3a;
     border-radius: 1rem;
+    color: #fbfbff;
+
+    &:hover {
+      background-color: #2e2e3ad3;
+      color: #bbb8b2;
+    }
+
+    p {
+      margin: 0;
+    }
   }
-  p {
-    margin: 0;
+}
+
+@media (min-width: 768px) {
+  .hp-content {
+    grid-template-columns: 50% 50%;
+    .declaration {
+      padding: 2rem;
+      justify-content: space-evenly;
+      .retro-camera {
+        margin-top: 6rem;
+      }
+      h1 {
+        margin-bottom: 12rem;
+      }
+    }
+    .action-statement {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      background-color: #157a6e;
+      padding: 3rem 0;
+      .description-of-us {
+        margin: 1rem;
+        .spray-can {
+          color: #2e2e3a;
+        }
+        .description {
+          padding: 0;
+          margin: 1rem;
+        }
+      }
+    }
   }
 }
