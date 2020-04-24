@@ -9,7 +9,7 @@ const Hero = () => {
       <section className="call-to-action">
         <Link to="/find" className="find-murals">
           <FontAwesomeIcon icon={faMapMarkedAlt} className="map" />
-          <p>Find Murals</p>
+          <p> Find Murals</p>
         </Link>
       </section>
       <section className="user">
