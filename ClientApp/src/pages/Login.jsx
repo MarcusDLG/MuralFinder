@@ -18,43 +18,26 @@ const Login = () => {
     setReturningUser(prevUser => {
       return { ...prevUser, [key]: value }
     })
-    // console.log(returningUser)
   }
 
   const returningUserToApi = async e => {
     e.preventDefault()
-    // console.log('sending returning user', returningUser)
     const resp = await axios.post('/auth/login', returningUser)
-    // console.log(resp.data)
     setToken(resp.data.token)
-    // console.log(token)
     localStorage.setItem('token', resp.data.token)
     if (resp.status === 200 || resp.status === 201) {
-      // do something something else
       setWasSuccessfullyCreated({
         returningUserInformation: resp.data,
         shouldRedirect: true,
       })
-      // console.log(wasSuccessfullyCreated.returningUserInformation)
     }
   }
 
-  // const getSecretInformation = async () => {
-  //   const resp = await axios.get('/api/secret', {
-  //     headers: {
-  //       Authorization: 'Bearer ' + token,
-  //     },
-  //   })
-
-  //   console.log(resp.data)
-  // }
   if (wasSuccessfullyCreated.shouldRedirect) {
-    // console.log(wasSuccessfullyCreated.shouldRedirect)
     return <Redirect to="/profile" />
   } else {
     return (
       <>
-        {/* <button onClick={getSecretInformation}>test auth</button> */}
         <form action="" className="login-form" onSubmit={returningUserToApi}>
           <label htmlFor="">Email</label>
           <input

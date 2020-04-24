@@ -27,8 +27,6 @@ const AddMural = props => {
       })
       .then(resp => {
         console.log(resp.data)
-        // const key = mural.imageUrl
-        // const value = resp.data.secureUri
         setMural(prevMural => {
           prevMural.imageUrl = resp.data.secureUri
           return prevMural
@@ -47,7 +45,6 @@ const AddMural = props => {
   }
   const addMuralToApi = async e => {
     e.preventDefault()
-    // console.log('adding', mural)
     const resp = await axios.post(`/api/artists/${artistId}/murals`, mural)
     console.log(resp.data)
     if (resp.status === 201 || resp.status === 200) {

@@ -9,8 +9,6 @@ const Profile = () => {
     bookmarks: [{ mural: { latitude: 10, longitude: 10 } }],
   })
 
-  const TOKEN =
-    'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
@@ -48,7 +46,7 @@ const Profile = () => {
             <ReactMapGL
               {...viewport}
               width="100vw"
-              mapboxApiAccessToken={TOKEN}
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
               onViewportChange={setViewport}
             >
               {showPopup && (

@@ -15,9 +15,6 @@ const MuralDetails = props => {
     longitude: 10,
   })
   const muralId = props.match.params.muralId
-  // const muralLongitude = parseFloat(mural.longitude)
-  // const muralLatitude = parseFloat(mural.latitude)
-  // console.log(muralLongitude)
 
   const saveMuralToUser = async () => {
     console.log('mural button clicked')
@@ -31,9 +28,6 @@ const MuralDetails = props => {
       }
     )
   }
-
-  const TOKEN =
-    'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
 
   const [viewport, setViewport] = useState({
     width: '100%',
@@ -52,10 +46,6 @@ const MuralDetails = props => {
     getMuralData()
   }, [])
   if (mural) {
-    // const latitude = props.mural.latitude
-    // const longitude = props.mural.longitude
-    //re-render map function to make this work
-    // console.log(mural)
     return (
       <>
         <section className="single-mural">
@@ -97,7 +87,7 @@ const MuralDetails = props => {
                 {...viewport}
                 width="75vw"
                 onViewportChange={setViewport}
-                mapboxApiAccessToken={TOKEN}
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
               >
                 <Marker
                   latitude={parseFloat(mural.latitude)}

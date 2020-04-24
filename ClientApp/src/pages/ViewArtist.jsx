@@ -11,8 +11,6 @@ const ViewArtist = props => {
   const [artist, setArtist] = useState({ murals: [] })
   console.log(artistId)
 
-  const TOKEN =
-    'pk.eyJ1IjoiZGVsYWcwMTAiLCJhIjoiY2s4Ynd0ZGFzMGNwbzNubGVkeHdwb2kyayJ9.b06ryTcLddTGD2JCZOSJTA'
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
@@ -36,7 +34,6 @@ const ViewArtist = props => {
       const resp = await axios.get('/api/artists/' + artistId)
       console.log(resp.data)
       setArtist(resp.data)
-      // console.log(artist)
     }
     getArtistData()
   }, [artistId])
@@ -48,10 +45,8 @@ const ViewArtist = props => {
           <section className="map-container">
             <ReactMapGL
               {...viewport}
-              // style="satellite-streets-v11"
               width="100vw"
-              // height="100vh"
-              mapboxApiAccessToken={TOKEN}
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
               onViewportChange={setViewport}
             >
               {showPopup && (
@@ -118,7 +113,6 @@ const ViewArtist = props => {
                       <img src={mural.imageUrl} alt="" />
                       <section className="mural-info">
                         <p>{mural.name}</p>
-                        {/* <p>{mural.artist}</p> */}
                       </section>
                     </Link>
                   </li>

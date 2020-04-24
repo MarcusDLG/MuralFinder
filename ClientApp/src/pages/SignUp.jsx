@@ -37,15 +37,7 @@ const SignUp = () => {
 
   if (wasSuccessfullyCreated.shouldRedirect) {
     console.log(wasSuccessfullyCreated.shouldRedirect)
-    return (
-      <Redirect
-        to="/profile"
-        // to={{
-        //   state: { artist: wasSuccessfullyCreated.newArtistInformation },
-        //   pathname: `/artist/${wasSuccessfullyCreated.newArtistInformation.id}/add`,
-        // }}
-      />
-    )
+    return <Redirect to="/profile" />
   } else {
     return (
       <>
