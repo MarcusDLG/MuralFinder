@@ -63,12 +63,14 @@
   display: grid;
   grid-template-columns: 100%;
   .declaration {
+    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
+
     display: grid;
     grid-template-columns: 100%;
     justify-items: center;
     margin: 0;
     padding: 5rem;
-    background-color: #2e2e3a;
+    // background-color: #2e2e3a;
     align-items: center;
     justify-content: center;
     color: #de9151;
@@ -87,7 +89,7 @@
   .who-we-are {
     display: grid;
     grid-template-columns: 100%;
-    background-color: #de9151;
+    background: linear-gradient(200deg, #fcbe8b, #de9151);
     margin: 0;
     padding: 5rem 3rem;
     text-align: center;
@@ -108,7 +110,7 @@
   }
 
   .action-statement {
-    background-color: #2e2e3a;
+    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
     // border-radius: 8rem;
     padding: 5rem 0;
     text-align: center;
@@ -167,7 +169,7 @@
     .action-statement {
       grid-column-start: 1;
       grid-column-end: 4;
-      background-color: #157a6e;
+      background: linear-gradient(5deg, #8cfff2, #0e8e7f);
       padding: 3rem 0;
       .description-of-us {
         margin: 1rem;

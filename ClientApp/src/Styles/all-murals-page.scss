@@ -28,8 +28,8 @@
 .mural-results {
   .all-murals {
     color: #2e2e3a;
-    background-color: #2e2e3a;
-    padding: 5rem 0 16rem 0;
+    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
+    padding: 5rem 0;
     ul {
       margin: 0;
       display: grid;
@@ -39,7 +39,7 @@
     }
     .image-tile {
       border: 0.2rem solid #157a6e;
-      background-color: #de9151;
+      background: linear-gradient(140deg, #fcbe8b, #de9151);
       border-radius: 1rem;
       // box-shadow: 0.5rem 0.5rem #888888;
       margin: 1rem 0;

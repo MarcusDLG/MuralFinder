@@ -13,7 +13,7 @@ const Hero = () => {
         </Link>
       </section>
       <section className="user">
-        <Link to="/signup" className="sign-up">
+        <Link to="/signup" className="sign-up-button">
           <p>Sign Up</p>
         </Link>
         <Link to="/login" className="login">

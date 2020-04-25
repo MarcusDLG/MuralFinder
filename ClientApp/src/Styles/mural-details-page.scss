@@ -12,17 +12,17 @@
     display: grid;
     grid-template-columns: 12.5 12.5 12.5 12.5 12.5 12.5 12.5 12.5%;
     align-items: center;
-    background-color: #de9151;
+    background: linear-gradient(140deg, #fcbe8b, #de9151);
     padding: 1rem;
     // justify-content: center;
 
     .bookmark {
-      background-color: #de9151;
+      // background: linear-gradient(140deg, #fcbe8b, #de9151);
       border: none;
       grid-column-start: 1;
       grid-column-end: 3;
       button {
-        background-color: #de9151;
+        background: linear-gradient(140deg, #fcbe8b, #de9151);
         border-radius: 1rem;
         border-color: #2e2e3a;
       }
@@ -52,9 +52,10 @@
   }
 
   .mural-description {
-    background-color: #2d2d3a;
+    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
     color: #de9151;
     text-align: center;
+    font-weight: 500;
     padding: 1rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     .description {
@@ -66,7 +67,8 @@
   }
 
   .map {
-    background-color: #157a6e;
+    background: linear-gradient(180deg, #4dc7b9, #157a6e);
+
     display: grid;
     grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
     justify-content: center;
