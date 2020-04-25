@@ -35,7 +35,7 @@ const MuralDetails = props => {
     height: '100%',
     latitude: 27.9506,
     longitude: -82.4572,
-    zoom: 11,
+    zoom: 12,
   })
 
   useEffect(() => {
@@ -43,6 +43,13 @@ const MuralDetails = props => {
       const resp = await axios.get('/api/murals/' + muralId)
       console.log({ mural: resp.data })
       setMural(resp.data)
+      setViewport(prevViewport => {
+        return {
+          ...prevViewport,
+          latitude: parseFloat(resp.data.latitude),
+          longitude: parseFloat(resp.data.longitude),
+        }
+      })
     }
     getMuralData()
   }, [])

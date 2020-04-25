@@ -87,11 +87,17 @@ const AddMural = props => {
             </section>
             <section>
               <label htmlFor="">Description</label>
-              <input
+              <textarea
                 type="text"
                 name="Description"
                 onChange={updateMuralData}
-              />
+                required
+              ></textarea>
+              {/* <input
+                type="text"
+                name="Description"
+                onChange={updateMuralData}
+              /> */}
             </section>
             <section>
               <label htmlFor="">City</label>

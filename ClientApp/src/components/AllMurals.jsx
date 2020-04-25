@@ -31,19 +31,20 @@ const AllMurals = () => {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 27.9506,
-    longitude: -82.4572,
-    zoom: 11,
+    latitude: 27.94295860604814,
+    longitude: -82.46921266572785,
+    zoom: 10.2,
     interactive: true,
     // style: 'satellite-streets-v11',
   })
+  // console.log(viewport)
 
   useEffect(() => {
     getAllMurals()
   }, [])
 
   if (results) {
-    console.log(results)
+    // console.log(results)
     return (
       <>
         {/* <section className="search-container">
