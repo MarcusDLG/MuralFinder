@@ -85,3 +85,18 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  .single-mural {
+    .mural-info {
+      .artist-info {
+        h5 {
+          font-size: 1.8rem;
+        }
+      }
+    }
+    .mural-description {
+      font-size: 1.5rem;
+    }
+  }
+}

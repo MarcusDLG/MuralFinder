@@ -20,27 +20,30 @@
   .artist-information {
     display: grid;
     grid-template-columns: 100%;
-    background-color: #de9151;
+    background: linear-gradient(140deg, #fcbe8b, #de9151);
     a {
       color: #2e2e3a;
     }
-  }
-  .artist-name {
-    .spray-icon {
-      font-size: 2rem;
+    .artist-name {
+      .spray-icon {
+        font-size: 2rem;
+      }
+      align-items: center;
+      display: flex;
     }
-    align-items: center;
-    display: flex;
   }
 
   color: #2e2e3a;
-  ul {
-    list-style: none;
-    padding: 2rem;
-    margin: 0;
-  }
+
   .murals {
     padding: 2rem;
+    ul {
+      display: grid;
+      grid-template-columns: 100%;
+      list-style: none;
+      padding: 2rem;
+      margin: 0;
+    }
     .image-tile {
       border-radius: 1rem;
       // box-shadow: 0.5rem 0.5rem #888888;
@@ -56,6 +59,19 @@
         text-align: center;
         color: #2e2e3a;
         font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .artist-page {
+    .murals {
+      ul {
+        grid-template-columns: 50% 50%;
+        .image-tile {
+          margin: 1rem;
+        }
       }
     }
   }

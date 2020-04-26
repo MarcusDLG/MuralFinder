@@ -15,9 +15,9 @@ const ViewArtist = props => {
   const [viewport, setViewport] = useState({
     width: '100%',
     height: '100%',
-    latitude: 27.9506,
-    longitude: -82.4572,
-    zoom: 11,
+    latitude: 27.94295860604814,
+    longitude: -82.46921266572785,
+    zoom: 10.2,
     interactive: true,
   })
 
@@ -105,22 +105,20 @@ const ViewArtist = props => {
           <a href={`${artist.instagram}`}>Instagram</a>
         </section>
         <section className="murals">
-          <section className="image-tiles">
-            <ul>
-              {artist.murals.map(mural => {
-                return (
-                  <li className="image-tile" key={mural.id}>
-                    <Link to={`/mural/${mural.id}`}>
-                      <img src={mural.imageUrl} alt="" />
-                      <section className="mural-info">
-                        <p>{mural.name}</p>
-                      </section>
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </section>
+          <ul>
+            {artist.murals.map(mural => {
+              return (
+                <li className="image-tile" key={mural.id}>
+                  <Link to={`/mural/${mural.id}`}>
+                    <img src={mural.imageUrl} alt="" />
+                    <section className="mural-info">
+                      <p>{mural.name}</p>
+                    </section>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </section>
       </main>
       <Footer />
