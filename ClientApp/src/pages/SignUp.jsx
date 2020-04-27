@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import { Alert } from 'reactstrap'
 import '../Styles/sign-up-login.scss'
 
 const SignUp = () => {
@@ -11,6 +12,8 @@ const SignUp = () => {
     shouldRedirect: false,
     newUserInformation: {},
   })
+  const [visible, setVisible] = useState(false)
+  const onClose = () => setVisible(false)
 
   const updateNewUserData = e => {
     const key = e.target.name
@@ -23,16 +26,22 @@ const SignUp = () => {
 
   const newUserToApi = async e => {
     e.preventDefault()
-    console.log('sending new user', newUser)
-    const resp = await axios.post('/auth/signup', newUser)
-    localStorage.setItem('token', resp.data.token)
-    if (resp.status === 200 || resp.status === 201) {
-      // do something something else
-      setWasSuccessfullyCreated({
-        newUserInformation: resp.data,
-        shouldRedirect: true,
+    // console.log('sending new user', newUser)
+    try {
+      const resp = await axios.post('/auth/signup', newUser)
+      localStorage.setItem('token', resp.data.token)
+      if (resp.status === 200 || resp.status === 201) {
+        // do something something else
+        setWasSuccessfullyCreated({
+          newUserInformation: resp.data,
+          shouldRedirect: true,
+        })
+        console.log(wasSuccessfullyCreated.newUserInformation)
+      }
+    } catch (error) {
+      setVisible(prevVisibile => {
+        return { ...prevVisibile, visible: true }
       })
-      console.log(wasSuccessfullyCreated.newUserInformation)
     }
   }
 
@@ -43,6 +52,9 @@ const SignUp = () => {
     return (
       <>
         <form className="sign-up" onSubmit={newUserToApi}>
+          <Alert isOpen={visible} toggle={onClose} color="danger">
+            <p>Password must be at least 7 characters long!</p>
+          </Alert>
           <label htmlFor="">Full Name</label>
           <input
             type="text"

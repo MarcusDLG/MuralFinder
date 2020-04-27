@@ -127,7 +127,7 @@
         // font-weight: 900;
         font-size: 2rem;
         margin: 0rem 2rem 1rem;
-        color: #2e2e3a;
+        color: #de9151;
       }
       .spray-can {
         font-size: 5rem;
@@ -136,19 +136,34 @@
       }
     }
   }
-
+  /////////////here//////////////
   .call-to-action {
-    padding: 1rem;
-    // background-color: whitesmoke;
-    border: 0.1rem solid #343434;
-    background-color: #2e2e3a;
     border-radius: 1rem;
+
+    display: flex;
+    height: fit-content;
     color: #fbfbff;
+    align-items: center;
+    background-color: #2e2e3ad3;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 2rem;
 
     &:hover {
-      background-color: #2e2e3ad3;
+      background-color: #2d2d3a;
       color: #bbb8b2;
     }
+    // padding: 1rem;
+    // // background-color: whitesmoke;
+    // border: 0.1rem solid #343434;
+    // background-color: #2e2e3a;
+    // border-radius: 1rem;
+    // color: #fbfbff;
+
+    // &:hover {
+    //   background-color: #2e2e3ad3;
+    //   color: #bbb8b2;
+    // }
 
     p {
       margin: 0;
@@ -182,6 +197,7 @@
         .description {
           padding: 0;
           margin: 1rem;
+          color: #2e2e3a;
         }
       }
     }
