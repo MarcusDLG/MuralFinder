@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import { Alert } from 'reactstrap'
 
 const Login = () => {
   const [returningUser, setReturningUser] = useState({})
@@ -11,6 +12,8 @@ const Login = () => {
     shouldRedirect: false,
     returningUserInformation: {},
   })
+  const [visible, setVisible] = useState(false)
+  const onClose = () => setVisible(false)
 
   const updateReturningUserData = e => {
     const key = e.target.name
@@ -22,13 +25,19 @@ const Login = () => {
 
   const returningUserToApi = async e => {
     e.preventDefault()
-    const resp = await axios.post('/auth/login', returningUser)
-    setToken(resp.data.token)
-    localStorage.setItem('token', resp.data.token)
-    if (resp.status === 200 || resp.status === 201) {
-      setWasSuccessfullyCreated({
-        returningUserInformation: resp.data,
-        shouldRedirect: true,
+    try {
+      const resp = await axios.post('/auth/login', returningUser)
+      if (resp.status === 200 || resp.status === 201) {
+        setToken(resp.data.token)
+        localStorage.setItem('token', resp.data.token)
+        setWasSuccessfullyCreated({
+          returningUserInformation: resp.data,
+          shouldRedirect: true,
+        })
+      }
+    } catch (error) {
+      setVisible(prevVisibile => {
+        return { ...prevVisibile, visible: true }
       })
     }
   }
@@ -39,6 +48,9 @@ const Login = () => {
     return (
       <>
         <form action="" className="login-form" onSubmit={returningUserToApi}>
+          <Alert isOpen={visible} toggle={onClose} color="danger">
+            <p>Incorrect email or password!</p>
+          </Alert>
           <label htmlFor="">Email</label>
           <input
             type="text"
@@ -67,5 +79,3 @@ const Login = () => {
 }
 
 export default Login
-
-//
