@@ -39,8 +39,8 @@ const SignUp = () => {
         console.log(wasSuccessfullyCreated.newUserInformation)
       }
     } catch (error) {
-      setVisible(prevVisibile => {
-        return { ...prevVisibile, visible: true }
+      setVisible(prevVisible => {
+        return { ...prevVisible, visible: true }
       })
     }
   }

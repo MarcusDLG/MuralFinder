@@ -36,8 +36,8 @@ const Login = () => {
         })
       }
     } catch (error) {
-      setVisible(prevVisibile => {
-        return { ...prevVisibile, visible: true }
+      setVisible(prevVisible => {
+        return { ...prevVisible, visible: true }
       })
     }
   }
