@@ -8,6 +8,7 @@ import axios from 'axios'
 import PageLoader from '../components/PageLoader'
 import Footer from '../components/Footer'
 import '../Styles/mural-details-page.scss'
+import { Redirect } from 'react-router'
 
 const MuralDetails = props => {
   const [mural, setMural] = useState({
@@ -16,10 +17,13 @@ const MuralDetails = props => {
     longitude: 10,
   })
   const muralId = props.match.params.muralId
+  const [wasSuccessfullyBookmarked, setWasSuccessfullyBookmarked] = useState({
+    shouldRedirect: false,
+  })
 
   const saveMuralToUser = async () => {
     console.log('mural button clicked')
-    await axios.post(
+    const resp = await axios.post(
       `/api/bookmark/${mural.id}`,
       {},
       {
@@ -28,6 +32,9 @@ const MuralDetails = props => {
         },
       }
     )
+    if (resp.status === 200 || resp.status === 201) {
+      setWasSuccessfullyBookmarked({ shouldRedirect: true })
+    }
   }
 
   const [viewport, setViewport] = useState({
@@ -53,7 +60,9 @@ const MuralDetails = props => {
     }
     getMuralData()
   }, [])
-  if (mural) {
+  if (wasSuccessfullyBookmarked.shouldRedirect) {
+    return <Redirect to="/profile" />
+  } else if (mural) {
     return (
       <>
         <section className="single-mural">
