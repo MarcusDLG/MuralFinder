@@ -34,6 +34,7 @@
     }
     .spray-icon {
       font-size: 3rem;
+      padding: 0 1rem;
       // grid-column-start: 6;
       // grid-column-end: 7;
     }
@@ -76,6 +77,7 @@
       grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
       justify-content: center;
       align-items: center;
+      min-height: 30vh;
       margin: 0;
       padding: 0;
       padding: 1rem 0;
@@ -105,8 +107,10 @@
   }
 }
 
-@media (min-width: 1028px) {
-  .description-map {
-    grid-template-columns: 50% 50%;
-  }
+@media (min-width: 1024px) {
+  // .single-mural {
+  //   .description-map {
+  //     grid-template-columns: 50% 50%;
+  //   }
+  // }
 }

@@ -15,7 +15,7 @@
     }
   }
   .user-details {
-    padding: 0;
+    padding: 0 1rem;
     margin: 0;
     background: linear-gradient(140deg, #fcbe8b, #de9151);
     p {
@@ -26,6 +26,7 @@
     background: linear-gradient(5deg, #5b5b76, #2e2e3a);
     text-align: center;
     padding: 1rem 0 2rem 0;
+    min-height: 70vh;
     h1 {
       padding: 1rem 0 0 0;
       color: #de9151;
@@ -78,7 +79,7 @@
   }
 }
 
-@media (min-width: 1028px) {
+@media (min-width: 1024px) {
   .profile-page {
     .liked-murals {
       ul {

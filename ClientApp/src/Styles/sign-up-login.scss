@@ -5,26 +5,29 @@
   justify-content: center;
   margin: 0;
   padding: 10rem 0;
+  min-height: 60vh;
   background: linear-gradient(5deg, #5b5b76, #2e2e3a);
   color: #de9151;
 }
 .image-container img {
   background: linear-gradient(180deg, #4dc7b9, #157a6e);
-  padding: 4rem 0;
+  padding: 2rem 0;
   max-width: 100%;
   height: auto;
 }
 
 //Login page
-.login-form {
-  color: #de9151;
-  background: linear-gradient(5deg, #5b5b76, #2e2e3a);
-  display: grid;
-  grid-template-columns: 50%;
-  justify-content: center;
-  padding: 10rem 0;
+.login-page {
+  .login-form {
+    color: #de9151;
+    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
+    display: grid;
+    grid-template-columns: 50%;
+    justify-content: center;
+    padding: 12rem 0;
+    // height: 100vh;
+  }
 }
-
 @media (min-width: 768px) {
   .sign-up {
     font-size: 1.5rem;
@@ -32,4 +35,10 @@
   .login-form {
     font-size: 1.5rem;
   }
+  .image-container img {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
 }

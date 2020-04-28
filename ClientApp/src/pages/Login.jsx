@@ -48,33 +48,34 @@ const Login = () => {
   } else {
     return (
       <>
-        <form action="" className="login-form" onSubmit={returningUserToApi}>
-          <Alert isOpen={visible} toggle={onClose} color="danger">
-            <p>Incorrect email or password!</p>
-          </Alert>
-          <label htmlFor="">Email</label>
-          <input
-            type="text"
-            name="Email"
-            placeholder="John.Doe@JD.com"
-            onChange={updateReturningUserData}
-          />
-          <label htmlFor="">Password</label>
-          <input
-            type="password"
-            name="Password"
-            onChange={updateReturningUserData}
-          />
-          <Button color="secondary">Submit</Button>
-        </form>
-        <section className="image-container">
-          {/* <img
+        <main className="login-page">
+          <form action="" className="login-form" onSubmit={returningUserToApi}>
+            <Alert isOpen={visible} toggle={onClose} color="danger">
+              <p>Incorrect email or password!</p>
+            </Alert>
+            <label htmlFor="">Email</label>
+            <input
+              type="text"
+              name="Email"
+              placeholder="John.Doe@JD.com"
+              onChange={updateReturningUserData}
+            />
+            <label htmlFor="">Password</label>
+            <input
+              type="password"
+              name="Password"
+              onChange={updateReturningUserData}
+            />
+            <Button color="secondary">Submit</Button>
+          </form>
+          <section className="image-container">
+            {/* <img
             src="https://res.cloudinary.com/marcusdlg/image/upload/v1587734230/kynnssohlk9enby7as9t.jpg"
             alt="Sparkman Wharf"
           /> */}
-          <ImageCarousel />
-        </section>
-
+            <ImageCarousel />
+          </section>
+        </main>
         <Footer className="footer" />
       </>
     )
