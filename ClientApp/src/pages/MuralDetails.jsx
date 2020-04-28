@@ -84,34 +84,36 @@ const MuralDetails = props => {
                 <></>
               )}
             </section>
+            <section className="description-map">
+              <section className="mural-description">
+                <p className="description">{mural.description}</p>
+              </section>
 
-            <section className="mural-description">
-              <p className="description">{mural.description}</p>
+              <section className="map">
+                <section className="map-container">
+                  <ReactMapGL
+                    {...viewport}
+                    width="75vw"
+                    onViewportChange={setViewport}
+                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
+                  >
+                    <Marker
+                      latitude={parseFloat(mural.latitude)}
+                      longitude={parseFloat(mural.longitude)}
+                    >
+                      <span role="img" aria-label="marker">
+                        📍
+                      </span>
+                    </Marker>
+                    <GeolocateControl
+                      positionOptions={{ enableHighAccuracy: true }}
+                      trackUserLocation={true}
+                    />
+                  </ReactMapGL>
+                </section>
+              </section>
             </section>
           </main>
-          <section className="map">
-            <section className="map-container">
-              <ReactMapGL
-                {...viewport}
-                width="75vw"
-                onViewportChange={setViewport}
-                mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
-              >
-                <Marker
-                  latitude={parseFloat(mural.latitude)}
-                  longitude={parseFloat(mural.longitude)}
-                >
-                  <span role="img" aria-label="marker">
-                    📍
-                  </span>
-                </Marker>
-                <GeolocateControl
-                  positionOptions={{ enableHighAccuracy: true }}
-                  trackUserLocation={true}
-                />
-              </ReactMapGL>
-            </section>
-          </section>
         </section>
         {/* add other murals below as clickable cards */}
         <Footer />

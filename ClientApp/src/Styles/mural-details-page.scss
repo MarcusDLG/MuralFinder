@@ -50,38 +50,42 @@
       }
     }
   }
-
-  .mural-description {
-    background: linear-gradient(5deg, #5b5b76, #2e2e3a);
-    color: #de9151;
-    text-align: center;
-    font-weight: 500;
-    padding: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    .description {
-      // background-color: #de9151;
-      padding: 1rem;
-      margin: 1rem 4rem;
-      // border-radius: 1rem;
-    }
-  }
-
-  .map {
-    background: linear-gradient(180deg, #4dc7b9, #157a6e);
-
+  .description-map {
     display: grid;
-    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    padding: 1rem 0;
+    grid-template-columns: 100%;
+    .mural-description {
+      background: linear-gradient(5deg, #5b5b76, #2e2e3a);
+      color: #de9151;
+      text-align: center;
+      font-weight: 500;
+      padding: 1rem;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      .description {
+        // background-color: #de9151;
+        padding: 1rem;
+        margin: 1rem 4rem;
+        // border-radius: 1rem;
+      }
+    }
 
-    .map-container {
-      grid-column-start: 2;
-      grid-column-end: 8;
-      max-width: auto;
-      height: 20rem;
+    .map {
+      background: linear-gradient(180deg, #4dc7b9, #157a6e);
+
+      display: grid;
+      grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      padding: 1rem 0;
+
+      .map-container {
+        grid-column-start: 2;
+        grid-column-end: 8;
+        max-width: auto;
+        height: 20rem;
+      }
     }
   }
 }
@@ -98,5 +102,11 @@
     .mural-description {
       font-size: 1.5rem;
     }
+  }
+}
+
+@media (min-width: 1028px) {
+  .description-map {
+    grid-template-columns: 50% 50%;
   }
 }

@@ -77,3 +77,13 @@
     }
   }
 }
+
+@media (min-width: 1028px) {
+  .artist-page {
+    .murals {
+      ul {
+        grid-template-columns: 25% 25% 25% 25%;
+      }
+    }
+  }
+}

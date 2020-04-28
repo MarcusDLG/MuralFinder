@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import { Alert } from 'reactstrap'
 import '../Styles/sign-up-login.scss'
+import ImageCarousel from '../components/ImageCarousel'
 
 const SignUp = () => {
   const [newUser, setNewUser] = useState({})
@@ -74,10 +75,11 @@ const SignUp = () => {
           <Button color="secondary">Submit</Button>
         </form>
         <section className="image-container">
-          <img
+          <ImageCarousel />
+          {/* <img
             src="https://res.cloudinary.com/marcusdlg/image/upload/v1587502300/bbgszkkaxqpsyb36ra53.jpg"
             alt="Sparkman Wharf"
-          />
+          /> */}
         </section>
         <Footer />
       </>

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import { Alert } from 'reactstrap'
+import ImageCarousel from '../components/ImageCarousel'
 
 const Login = () => {
   const [returningUser, setReturningUser] = useState({})
@@ -67,11 +68,13 @@ const Login = () => {
           <Button color="secondary">Submit</Button>
         </form>
         <section className="image-container">
-          <img
+          {/* <img
             src="https://res.cloudinary.com/marcusdlg/image/upload/v1587734230/kynnssohlk9enby7as9t.jpg"
             alt="Sparkman Wharf"
-          />
+          /> */}
+          <ImageCarousel />
         </section>
+
         <Footer className="footer" />
       </>
     )

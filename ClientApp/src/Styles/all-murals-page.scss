@@ -83,3 +83,13 @@
     }
   }
 }
+
+@media (min-width: 1028px) {
+  .mural-results {
+    .all-murals {
+      ul {
+        grid-template-columns: 25% 25% 25% 25%;
+      }
+    }
+  }
+}

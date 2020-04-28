@@ -15,7 +15,7 @@ namespace MuralFinder.Controllers
   public class FileUploadController : ControllerBase
   {
     [HttpPost("upload")]
-    public async Task<ActionResult> UploadFile(IFormFile file)
+    public ActionResult UploadFile(IFormFile file)
     {
       // validate its an image 
       var extension = file.FileName.Split('.').Last();

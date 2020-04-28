@@ -77,3 +77,13 @@
     }
   }
 }
+
+@media (min-width: 1028px) {
+  .profile-page {
+    .liked-murals {
+      ul {
+        grid-template-columns: 25% 25% 25% 25%;
+      }
+    }
+  }
+}

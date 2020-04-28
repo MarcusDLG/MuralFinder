@@ -35,16 +35,13 @@ const AllMurals = () => {
     longitude: -82.46921266572785,
     zoom: 10.2,
     interactive: true,
-    // style: 'satellite-streets-v11',
   })
-  // console.log(viewport)
 
   useEffect(() => {
     getAllMurals()
   }, [])
 
   if (results) {
-    // console.log(results)
     return (
       <>
         {/* <section className="search-container">
@@ -59,9 +56,7 @@ const AllMurals = () => {
             <section className="map-container">
               <ReactMapGL
                 {...viewport}
-                // style="satellite-streets-v11"
                 width="100vw"
-                // height="100vh"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
                 onViewportChange={setViewport}
               >
