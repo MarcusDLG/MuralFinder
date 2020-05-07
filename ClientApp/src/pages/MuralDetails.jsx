@@ -109,6 +109,7 @@ const MuralDetails = props => {
                     <Marker
                       latitude={parseFloat(mural.latitude)}
                       longitude={parseFloat(mural.longitude)}
+                      offsetTop={-10}
                     >
                       <span role="img" aria-label="marker">
                         📍

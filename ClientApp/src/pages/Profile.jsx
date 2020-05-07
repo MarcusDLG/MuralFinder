@@ -74,6 +74,7 @@ const Profile = () => {
                   <Marker
                     latitude={parseFloat(m.mural.latitude)}
                     longitude={parseFloat(m.mural.longitude)}
+                    offsetTop={-10}
                   >
                     <section
                       className="marker"

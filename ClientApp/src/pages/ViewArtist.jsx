@@ -74,6 +74,7 @@ const ViewArtist = props => {
                   <Marker
                     latitude={parseFloat(mural.latitude)}
                     longitude={parseFloat(mural.longitude)}
+                    offsetTop={-10}
                   >
                     <section
                       className="marker"
