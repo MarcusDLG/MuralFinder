@@ -74,7 +74,7 @@ const SignUp = () => {
           <input type="password" name="Password" onChange={updateNewUserData} />
           <Button color="secondary">Submit</Button>
           <p>
-            Already have an account? <Link to="/login">Log In!</Link>
+            Already have an account? <Link to="/login">Login!</Link>
           </p>
         </form>
         <section className="image-container">
