@@ -56,9 +56,9 @@ namespace MuralFinder.Controllers
         {
           Id = s.Artist.Id,
           Name = s.Artist.Name,
-          Website = s.Artist.Website,
-          Facebook = s.Artist.Facebook,
-          Instagram = s.Artist.Instagram
+          // Website = s.Artist.Website,
+          // Facebook = s.Artist.Facebook,
+          // Instagram = s.Artist.Instagram
         }
       })
       .FirstOrDefaultAsync(f => f.Id == id)
