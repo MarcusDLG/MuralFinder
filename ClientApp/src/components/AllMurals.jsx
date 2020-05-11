@@ -23,7 +23,7 @@ const AllMurals = () => {
   const [selectedPlace, setSelectedPlace] = useState({})
 
   const markerClicked = place => {
-    console.log('marker clcked', place)
+    // console.log('marker clcked', place)
     setSelectedPlace(place)
     setShowPopup(true)
   }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import { Alert } from 'reactstrap'
 import '../Styles/sign-up-login.scss'
@@ -73,6 +73,9 @@ const SignUp = () => {
           <label htmlFor="">Password</label>
           <input type="password" name="Password" onChange={updateNewUserData} />
           <Button color="secondary">Submit</Button>
+          <p>
+            Already have an account? <Link to="/login">Log In!</Link>
+          </p>
         </form>
         <section className="image-container">
           <ImageCarousel />

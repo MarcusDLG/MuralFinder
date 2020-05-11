@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import { Alert } from 'reactstrap'
 import ImageCarousel from '../components/ImageCarousel'
@@ -67,6 +67,9 @@ const Login = () => {
               onChange={updateReturningUserData}
             />
             <Button color="secondary">Submit</Button>
+            <p>
+              Don't have an account? <Link to="/signUp">Sign Up!</Link>
+            </p>
           </form>
           <section className="image-container">
             {/* <img
