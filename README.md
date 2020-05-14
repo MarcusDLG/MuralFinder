@@ -6,6 +6,8 @@ https://kastle-mural-finder.herokuapp.com/
 
 hero : Photo by ryan haft on Unsplash
 
+Photo by Drew Coffman on Unsplash
+
 ## Details
 
 This is the template app SDG uses to start off learning C# and .NET
