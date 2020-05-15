@@ -1,15 +1,15 @@
 .cities {
-  padding-top: 3rem;
+  // padding-top: 3rem;
   text-align: center;
 
   .tampa {
-    margin: 5rem;
-    border-radius: 1rem;
+    // margin: 5rem;
+    // border-radius: 1rem;
     background-image: url('../Images/dtTampa.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 50vh;
+    height: 47vh;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -29,13 +29,13 @@
     }
   }
   .stp {
-    margin: 5rem;
-    border-radius: 1rem;
+    // margin: 5rem;
+    // border-radius: 1rem;
     background-image: url('../Images/stp.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 50vh;
+    height: 47vh;
     width: auto;
     filter: grayscale(100%);
     display: flex;
@@ -53,6 +53,40 @@
       //   background-color: #2d2d3a;
       //   color: #bbb8b2;
       // }
+    }
+  }
+  .future {
+    // margin: 5rem;
+    // border-radius: 1rem;
+    background-image: url('../Images/dtTampa.jpg');
+    // filter: grayscale(90%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fbfbff;
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    a {
+      color: #fbfbff;
+      background-color: #2e2e3ad3;
+      width: auto;
+      padding: 0 1rem;
+      font-size: 2rem;
+      border-radius: 1rem;
+      align-self: center;
+      &:hover {
+        background-color: #2d2d3a;
+        color: #bbb8b2;
+      }
     }
   }
 }
