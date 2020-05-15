@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../Styles/landing.scss'
+import ImageCarousel from '../components/ImageCarousel'
 
 const Landing = () => {
   return (
@@ -22,6 +23,7 @@ const Landing = () => {
           <a href="mailto:muralbooktampa@gmail.com">MuralFinder Suggestions</a>
         </section>
       </section>
+      <ImageCarousel />
     </>
   )
 }
