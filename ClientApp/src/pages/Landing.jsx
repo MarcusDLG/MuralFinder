@@ -18,9 +18,13 @@ const Landing = () => {
           {/* stp card and link to st. pete homepage. Greyed out for now. */}
         </section>
         <section className="future">
-          <h1>Have somewhere that you think we should be checking out?</h1>
-          <h2>Send us an email! </h2>
-          <a href="mailto:muralbooktampa@gmail.com">MuralFinder Suggestions</a>
+          <section className="future-text">
+            <h1>Have somewhere that you think we should be checking out?</h1>
+            <h2>Send us an email! </h2>
+            <a href="mailto:muralbooktampa@gmail.com">
+              MuralFinder Suggestions
+            </a>
+          </section>
         </section>
       </section>
       <ImageCarousel />
