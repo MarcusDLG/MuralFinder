@@ -44,7 +44,7 @@ const Login = () => {
   }
 
   if (wasSuccessfullyCreated.shouldRedirect) {
-    return <Redirect to="/profile" />
+    return <Redirect to="/find" />
   } else {
     return (
       <>
