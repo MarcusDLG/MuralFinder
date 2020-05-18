@@ -21,6 +21,7 @@ const Landing = () => {
           <section className="future-text">
             <h1>Have somewhere that you think we should be checking out?</h1>
             <h2>Send us an email! </h2>
+            <h2>Coming soon: submit a mural!</h2>
             <a href="mailto:muralbooktampa@gmail.com">
               MuralFinder Suggestions
             </a>
