@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button,
-} from 'reactstrap'
+// import {
+//   Card,
+//   CardImg,
+//   CardText,
+//   CardBody,
+//   CardTitle,
+//   CardSubtitle,
+//   Button,
+// } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
