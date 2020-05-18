@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Button,
+} from 'reactstrap'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
@@ -108,8 +117,20 @@ const Profile = () => {
                     <img src={m.mural.imageUrl} alt="" />
                     <section className="mural-info">
                       <p>{m.mural.name}</p>
-                      {/* <p>{mural.artist}</p> */}
                     </section>
+                    {/* <Card className="col-6">
+                      <CardImg
+                        top
+                        width="100%"
+                        src={m.mural.imageUrl}
+                        alt={m.mural.name}
+                      />
+                      <CardBody>
+                        <CardTitle>{m.mural.name}</CardTitle>
+                        <CardText>{m.mural.description}</CardText>
+                        <Button>View Mural</Button>
+                      </CardBody>
+                    </Card> */}
                   </Link>
                 </li>
               )
