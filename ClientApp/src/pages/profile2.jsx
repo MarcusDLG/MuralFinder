@@ -3,8 +3,9 @@ import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
+import '../Styles/profile-page.scss'
 
-const profile2 = () => {
+const Profile = () => {
   const [profile, setProfile] = useState({
     bookmarks: [{ mural: { latitude: 10, longitude: 10 } }],
   })
@@ -94,9 +95,10 @@ const profile2 = () => {
           </section>
         </section>
       </main>
+
       <Footer />
     </>
   )
 }
 
-export default profile2
+export default Profile

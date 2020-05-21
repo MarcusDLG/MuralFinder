@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import Profile2 from './pages/profile2'
 export default class App extends Component {
   static displayName = App.name
 
@@ -31,6 +32,17 @@ export default class App extends Component {
             render={() => {
               if (localStorage.getItem('token')) {
                 return <Profile />
+              } else {
+                return <Redirect to="/login" />
+              }
+            }}
+          />
+          <Route
+            exact
+            path="/profile2"
+            render={() => {
+              if (localStorage.getItem('token')) {
+                return <Profile2 />
               } else {
                 return <Redirect to="/login" />
               }
