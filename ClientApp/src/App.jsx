@@ -37,17 +37,6 @@ export default class App extends Component {
               }
             }}
           />
-          <Route
-            exact
-            path="/profile2"
-            render={() => {
-              if (localStorage.getItem('token')) {
-                return <Profile2 />
-              } else {
-                return <Redirect to="/login" />
-              }
-            }}
-          />
           <Route exact path="/find" component={Search} />
           <Route exact path="/addArtist" component={AddArtist} />
           <Route exact path="/artist/:artistId" component={ViewArtist} />
