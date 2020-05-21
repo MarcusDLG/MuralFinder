@@ -38,7 +38,65 @@ const profile2 = () => {
     }
     loadUserProfile()
   }, [])
-  return <></>
+  return (
+    <>
+      <main className="profile-page">
+        <section className="map">
+          <section className="map-container">
+            <ReactMapGL
+              {...viewport}
+              width="100vw"
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
+              onViewportChange={setViewport}
+            >
+              {showPopup && (
+                <Popup
+                  latitude={parseFloat(selectedPlace.latitude)}
+                  longitude={parseFloat(selectedPlace.longitude)}
+                  closeButton={true}
+                  closeOnClick={false}
+                  onClose={() => setShowPopup(false)}
+                  offsetTop={-5}
+                >
+                  <div className="popup-window">
+                    <Link to={`/mural/${selectedPlace.id}`}>
+                      <img
+                        src={selectedPlace.imageUrl}
+                        alt={selectedPlace.name}
+                      />
+                    </Link>
+                  </div>
+                </Popup>
+              )}
+              {profile.bookmarks.map(m => {
+                return (
+                  <Marker
+                    latitude={parseFloat(m.mural.latitude)}
+                    longitude={parseFloat(m.mural.longitude)}
+                    offsetTop={-10}
+                  >
+                    <section
+                      className="marker"
+                      onClick={() => markerClicked(m.mural)}
+                    >
+                      <span role="img" aria-label="marker">
+                        📍
+                      </span>
+                    </section>
+                  </Marker>
+                )
+              })}
+              <GeolocateControl
+                positionOptions={{ enableHighAccuracy: true }}
+                trackUserLocation={true}
+              />
+            </ReactMapGL>
+          </section>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
 }
 
 export default profile2
