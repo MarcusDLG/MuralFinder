@@ -50,8 +50,8 @@ const NewProfile = () => {
   }, [])
   return (
     <>
-      <section className="map">
-        <section className="map-container">
+      <section className="map2">
+        <section className="map-container2">
           <ReactMapGL
             {...viewport}
             width="80vw"
