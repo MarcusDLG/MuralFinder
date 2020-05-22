@@ -12,6 +12,7 @@ import ReactMapGL, { Marker, GeolocateControl, Popup } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Footer from '../components/Footer'
+import '../Styles/newprofile.scss'
 
 const NewProfile = () => {
   const [profile, setProfile] = useState({
@@ -49,8 +50,58 @@ const NewProfile = () => {
   }, [])
   return (
     <>
-      <section>hi</section>
-      <section>hello</section>
+      <section className="map">
+        <section className="map-container">
+          <ReactMapGL
+            {...viewport}
+            width="80vw"
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
+            onViewportChange={setViewport}
+          >
+            {showPopup && (
+              <Popup
+                latitude={parseFloat(selectedPlace.latitude)}
+                longitude={parseFloat(selectedPlace.longitude)}
+                closeButton={true}
+                closeOnClick={false}
+                onClose={() => setShowPopup(false)}
+                offsetTop={-5}
+              >
+                <div className="popup-window">
+                  <Link to={`/mural/${selectedPlace.id}`}>
+                    <img
+                      src={selectedPlace.imageUrl}
+                      alt={selectedPlace.name}
+                    />
+                  </Link>
+                </div>
+              </Popup>
+            )}
+            {profile.bookmarks.map(m => {
+              return (
+                <Marker
+                  latitude={parseFloat(m.mural.latitude)}
+                  longitude={parseFloat(m.mural.longitude)}
+                  offsetTop={-10}
+                >
+                  <section
+                    className="marker"
+                    onClick={() => markerClicked(m.mural)}
+                  >
+                    <span role="img" aria-label="marker">
+                      📍
+                    </span>
+                  </section>
+                </Marker>
+              )
+            })}
+            <GeolocateControl
+              positionOptions={{ enableHighAccuracy: true }}
+              trackUserLocation={true}
+            />
+          </ReactMapGL>
+        </section>
+      </section>
     </>
   )
 }

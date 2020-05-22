@@ -1,0 +1,11 @@
+.map {
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  .map-container {
+    display: grid;
+    justify-content: center;
+    height: 80vw;
+  }
+}
