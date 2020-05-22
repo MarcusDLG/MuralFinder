@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import NewProfile from './pages/NewProfile'
 export default class App extends Component {
   static displayName = App.name
 
@@ -36,6 +37,7 @@ export default class App extends Component {
               }
             }}
           />
+          <Route exact path="/newprofile" component={NewProfile} />
           <Route exact path="/find" component={Search} />
           <Route exact path="/addArtist" component={AddArtist} />
           <Route exact path="/artist/:artistId" component={ViewArtist} />
