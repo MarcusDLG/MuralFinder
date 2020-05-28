@@ -1,19 +1,49 @@
-.map2 {
-  padding: 1rem 0;
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  .map-container2 {
+main {
+  .map2 {
+    padding: 0rem 0;
     display: grid;
+    grid-template-columns: 100%;
     justify-content: center;
-    height: 40vw;
-    .popup-window {
-      height: auto;
-      width: 10rem;
-      img {
-        max-width: 100%;
+    .map-container2 {
+      display: grid;
+      justify-content: center;
+      height: 25vh;
+      width: 100%;
+      .popup-window {
         height: auto;
+        width: 10rem;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 80%;
+    list-style: none;
+    justify-content: center;
+
+    li {
+      margin: 1rem;
+      text-align: center;
+      .body {
+        background-color: #de9151;
+        a {
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    ul {
+      grid-template-columns: 45% 45%;
     }
   }
 }
