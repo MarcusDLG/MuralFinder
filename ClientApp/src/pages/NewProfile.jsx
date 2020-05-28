@@ -55,7 +55,7 @@ const NewProfile = () => {
           <section className="map-container2">
             <ReactMapGL
               {...viewport}
-              width="90vw"
+              width="80vw"
               mapboxApiAccessToken={process.env.REACT_APP_MAPBOXTOKEN}
               onViewportChange={setViewport}
             >
