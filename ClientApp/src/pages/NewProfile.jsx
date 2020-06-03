@@ -113,13 +113,13 @@ const NewProfile = () => {
                 </section> */}
                 <Card inverse className="mural-card">
                   {/* <CardTitle>{m.mural.name}</CardTitle> */}
+                  <CardImg src={m.mural.imageUrl} alt={m.mural.name} />
                   <CardBody className="body">
                     {/* <CardText>{m.mural.description}</CardText> */}
                     <Button>
                       <Link to={`./mural/${m.mural.id}`}>{m.mural.name}</Link>
                     </Button>
                   </CardBody>
-                  <CardImg src={m.mural.imageUrl} alt={m.mural.name} />
                 </Card>
               </li>
             )
